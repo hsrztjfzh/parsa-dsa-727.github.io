@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ثبت آگهی و خرید اکانت کالاف دیوتی موبایل</title>
+<meta name="description" content="ثبت آگهی فروش اکانت کالاف دیوتی موبایل و خرید اکانت از کانال تلگرام.">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eceee3;--card:#fff;--ink:#1e2620;--muted:#55604f;--accent:#b8821f;--on-accent:#fff;--line:#c9cdbb;--hero:#1e2620;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161c17;--card:#202921;--ink:#eef0e6;--muted:#a7b09c;--accent:#e0b04a;--on-accent:#1e2620;--line:#35402f;--hero:#0f1410}}
+:root[data-theme="dark"]{--bg:#161c17;--card:#202921;--ink:#eef0e6;--muted:#a7b09c;--accent:#e0b04a;--on-accent:#1e2620;--line:#35402f;--hero:#0f1410}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9}
+.hero{background:var(--hero);color:#eef0e6;padding:36px 20px 44px;text-align:center;border-radius:0 0 32px 32px}
+.hero svg{width:150px;height:150px;max-width:100%}
+.hero h1{font-size:1.9rem;font-weight:900;margin:12px 0 4px}
+.hero p{margin:0 auto;max-width:34ch;color:#b9c2ad}
+main{max-width:560px;margin:0 auto;padding:28px 20px 48px}
+.row{display:grid;gap:14px}
+a.btn,button.btn{font:inherit;font-weight:700;font-size:1.05rem;text-decoration:none;text-align:center;cursor:pointer;border:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:16px 20px;border-radius:16px;background:var(--accent);color:var(--on-accent)}
+a.btn.alt{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 2px var(--accent)}
+.btn:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.note{color:var(--muted);font-size:.9rem;text-align:center;margin-top:20px}
+dialog{width:min(520px,92vw);max-height:90vh;overflow:auto;border:0;border-radius:24px;padding:24px;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+dialog h2{margin:0 0 12px;font-size:1.3rem}
+label{display:block;font-weight:700;font-size:.92rem;margin:10px 0 2px}
+input{width:100%;font:inherit;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.warn{background:var(--bg);border-radius:12px;padding:10px 12px;margin:16px 0;font-size:.9rem;color:var(--muted)}
+.err{color:#c0392b;font-weight:700;min-height:1.6em;margin:6px 0}
+.close{background:transparent;color:var(--muted);box-shadow:none;margin-top:6px}
+</style>
+</head>
+<body>
+<header class="hero">
+<svg viewBox="0 0 200 200" role="img" aria-label="هدف‌گیر">
+<circle cx="100" cy="100" r="78" fill="none" stroke="#e0b04a" stroke-width="4"/>
+<circle cx="100" cy="100" r="48" fill="none" stroke="#8fb996" stroke-width="3" stroke-dasharray="6 8"/>
+<path d="M100 8v46M100 146v46M8 100h46M146 100h46" stroke="#e0b04a" stroke-width="5" stroke-linecap="round"/>
+<circle cx="100" cy="100" r="7" fill="#e0b04a"/>
+<path d="M70 160l30-22 30 22" fill="none" stroke="#8fb996" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<h1>بازار اکانت کالاف موبایل</h1>
+<p>آگهی اکانتت رو ثبت کن یا از کانال، اکانت بخر.</p>
+</header>
+<main>
+<div class="row">
+<button class="btn" id="open" type="button">📋 ثبت آگهی</button>
+<a class="btn alt" href="https://t.me/VGR_Store_codm" target="_blank" rel="noopener">🛒 خرید اکانت</a>
+</div>
+<p class="note">برای خرید اکانت، به کانال تلگرام مراجعه کنید.</p>
+</main>
+
+<dialog id="dlg">
+<h2>📋 اطلاعات اکانت</h2>
+<form id="f" novalidate>
+<label for="uid">یو آیدی عددی (UID)</label><input id="uid" inputmode="numeric">
+<label for="name">اسم اکانت</label><input id="name">
+<label for="level">لول اکانت</label><input id="level" inputmode="numeric">
+<label for="rank">رنک اکانت</label><input id="rank">
+<label for="leg">تعداد گان لجند</label><input id="leg" inputmode="numeric">
+<label for="myth">تعداد گان متیک</label><input id="myth" inputmode="numeric">
+<label for="price">قیمت اکانت (تومان)</label><input id="price" inputmode="numeric">
+<label for="seller">آیدی فروشنده</label><input id="seller">
+<div class="warn">📸 عکس اکانت را هم همراه اطلاعات ارسال کنید.<br>⚠️ در صورت کامل نبودن اطلاعات، آگهی تایید نمی‌شود.</div>
+<div class="err" id="err" role="alert"></div>
+<button class="btn" type="submit" style="width:100%">ارسال در تلگرام</button>
+<button class="btn close" type="button" id="close" style="width:100%">بستن</button>
+</form>
+</dialog>
+
+<script>
+var ADMIN = ""; // یوزرنیم تلگرام ادمین بدون @ ؛ اگه خالی باشه، لیست مخاطبین تلگرام باز میشه
+var dlg = document.getElementById("dlg");
+document.getElementById("open").onclick = function(){ dlg.showModal(); };
+document.getElementById("close").onclick = function(){ dlg.close(); };
+document.getElementById("f").onsubmit = function(e){
+  e.preventDefault();
+  var ids = ["uid","name","level","rank","leg","myth","price","seller"];
+  var v = ids.map(function(i){ return document.getElementById(i).value.trim(); });
+  if (v.some(function(x){ return !x; })) {
+    document.getElementById("err").textContent = "همه‌ی فیلدها باید پر بشن.";
+    return;
+  }
+  document.getElementById("err").textContent = "";
+  var t = "📋 اطلاعات اکانت:\n\nیو آیدی عددی (UID): " + v[0] + "\nاسم اکانت: " + v[1] + "\nلول اکانت: " + v[2] + "\nرنک اکانت: " + v[3] + "\nتعداد گان لجند: " + v[4] + "\nتعداد گان متیک: " + v[5] + "\nقیمت اکانت (تومان): " + v[6] + "\nآیدی فروشنده: " + v[7] + "\n\n📸 عکس اکانت رو هم همین‌جا بفرست.";
+  var q = encodeURIComponent(t);
+  var url = ADMIN ? "https://t.me/" + ADMIN + "?text=" + q : "https://t.me/share/url?url=%20&text=" + q;
+  var a = document.createElement("a");
+  a.href = url; a.target = "_blank"; a.rel = "noopener";
+  document.body.appendChild(a); a.click(); a.remove();
+};
+</script>
+</body>
+</html>
