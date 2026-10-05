@@ -1,4 +1,22 @@
 {
-  "updated_at": 1791194081,
-  "ads": []
+  "updated_at": 1791209386,
+  "ads": [
+    {
+      "id": 2,
+      "ad_code": "54649",
+      "uid": "827288273636",
+      "account_name": "Parsa",
+      "level": "879",
+      "price": "400",
+      "legendary_count": "2",
+      "mythic_count": "3",
+      "rank": "Legendary",
+      "save_type": "اکتیویژن",
+      "description": "ندارو",
+      "seller_username": "Parsa_xxxxx",
+      "created_at": 1791209379,
+      "expires_at": 1791468579,
+      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/54649.jpg"
+    }
+  ]
 }
