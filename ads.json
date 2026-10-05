@@ -1,0 +1,56 @@
+{
+  "updated_at": 1791191334,
+  "ads": [
+    {
+      "id": 3,
+      "ad_code": "66274",
+      "uid": "727383673",
+      "account_name": "Uehe",
+      "level": "Hehd",
+      "price": "Hdbd",
+      "legendary_count": "Jdiw",
+      "mythic_count": "Jejs",
+      "rank": "Master",
+      "save_type": "اکتیویژن",
+      "description": "ندارد",
+      "seller_username": "Parsa_xxxxx",
+      "created_at": 1791191327,
+      "expires_at": 1791450527,
+      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/66274.jpg"
+    },
+    {
+      "id": 2,
+      "ad_code": "89812",
+      "uid": "33444444443543",
+      "account_name": "5ggrrg",
+      "level": "4453",
+      "price": "500",
+      "legendary_count": "769",
+      "mythic_count": "23",
+      "rank": "Legendary",
+      "save_type": "اکتیویژن",
+      "description": "knhvn",
+      "seller_username": "Parsa_xxxxx",
+      "created_at": 1791134092,
+      "expires_at": 1791393292,
+      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/89812.jpg"
+    },
+    {
+      "id": 1,
+      "ad_code": "46324",
+      "uid": "3445454464335",
+      "account_name": "5555645",
+      "level": "464",
+      "price": "6666",
+      "legendary_count": "5",
+      "mythic_count": "6",
+      "rank": "Elite IV",
+      "save_type": "اکتیویژن",
+      "description": "knhvn",
+      "seller_username": "Parsa_xxxxx",
+      "created_at": 1791133682,
+      "expires_at": 1791392882,
+      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/46324.jpg"
+    }
+  ]
+}
