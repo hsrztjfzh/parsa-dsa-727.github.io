@@ -1,22 +1,22 @@
 {
-  "updated_at": 1791192969,
+  "updated_at": 1791193972,
   "ads": [
     {
-      "id": 4,
-      "ad_code": "27339",
+      "id": 1,
+      "ad_code": "14706",
       "uid": "8089860647",
-      "account_name": "Metadata",
-      "level": "301",
-      "price": "600 هزار تومان",
-      "legendary_count": "8",
-      "mythic_count": "1",
-      "rank": "Master",
-      "save_type": "فیسبوک",
-      "description": "خیلی اکانت خفنی هست و سفید",
+      "account_name": "تقتق",
+      "level": "تقوی",
+      "price": "وقوی",
+      "legendary_count": "تقتی",
+      "mythic_count": "ایتیت",
+      "rank": "Legendary",
+      "save_type": "اکتیویژن",
+      "description": "ندارد",
       "seller_username": "Parsa_xxxxx",
-      "created_at": 1791192163,
-      "expires_at": 1791451363,
-      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/27339.jpg"
+      "created_at": 1791193966,
+      "expires_at": 1791453166,
+      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/14706.jpg"
     }
   ]
 }
