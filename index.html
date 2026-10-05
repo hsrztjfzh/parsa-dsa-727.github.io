@@ -3,945 +3,1494 @@
 
 <head>
 
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-  <title>VGR STORE | خرید و فروش اکانت</title>
-
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    :root {
-      --bg: #070812;
-      --card: rgba(17, 19, 35, .92);
-      --text: #f4f5ff;
-      --muted: #9da2bd;
-      --primary: #8b5cf6;
-      --primary2: #a855f7;
-      --cyan: #22d3ee;
-      --green: #34d399;
-      --danger: #fb3f64;
-      --border: rgba(139, 92, 246, .4);
-    }
-
-    body {
-      min-height: 100vh;
-
-      background:
-        radial-gradient(
-          circle at 15% 10%,
-          rgba(139,92,246,.22),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 85% 25%,
-          rgba(34,211,238,.13),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 50% 100%,
-          rgba(168,85,247,.15),
-          transparent 35%
-        ),
-        var(--bg);
-
-      color: var(--text);
-
-      font-family:
-        Tahoma,
-        Arial,
-        sans-serif;
-
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-
-      position: fixed;
+<meta charset="UTF-8">
 
-      inset: 0;
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
-      pointer-events: none;
+<title>VGR STORE | خرید و فروش اکانت</title>
 
-      background:
-        linear-gradient(
-          rgba(255,255,255,.015) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.015) 1px,
-          transparent 1px
-        );
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-      background-size: 30px 30px;
-    }
+<style>
 
-    .container {
-      width: min(94%, 620px);
+/* =====================================================
+   RESET
+===================================================== */
 
-      margin: auto;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
 
-      padding:
-        20px
-        0
-        45px;
 
-      position: relative;
+/* =====================================================
+   COLORS
+===================================================== */
 
-      z-index: 1;
-    }
+:root {
 
-    header {
-      text-align: center;
+  --bg: #090707;
 
-      padding:
-        25px
-        15px
-        20px;
-    }
+  --card: rgba(22, 10, 12, .94);
 
-    .logo {
-      width: 78px;
-      height: 78px;
+  --text: #fff4f5;
 
-      margin:
-        0
-        auto
-        15px;
+  --muted: #b9a2a5;
 
-      border-radius: 24px;
+  --primary: #ef233c;
 
-      display: flex;
+  --primary2: #ff334f;
 
-      align-items: center;
+  --cyan: #ff5268;
 
-      justify-content: center;
+  --green: #ff6b7d;
 
-      font-size: 36px;
+  --danger: #ff3154;
 
-      background:
-        linear-gradient(
-          145deg,
-          #17182d,
-          #0d0e1c
-        );
+  --border: rgba(239, 35, 60, .42);
 
-      border:
-        1px solid
-        var(--border);
+}
 
-      box-shadow:
-        0 0 15px
-        rgba(139,92,246,.4),
 
-        0 0 45px
-        rgba(139,92,246,.14);
-    }
+/* =====================================================
+   BODY
+===================================================== */
 
-    h1 {
-      font-size: 25px;
+html,
+body {
 
-      margin-bottom: 10px;
+  min-height: 100%;
 
-      text-shadow:
-        0 0 10px
-        rgba(168,85,247,.8),
+  background:
+    var(--bg);
 
-        0 0 25px
-        rgba(168,85,247,.35);
-    }
+}
 
-    header p {
-      color: var(--muted);
 
-      line-height: 1.9;
+body {
 
-      font-size: 14px;
-    }
+  min-height: 100vh;
 
-    .card {
-      background: var(--card);
+  color: var(--text);
 
-      border:
-        1px solid
-        var(--border);
+  font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
 
-      border-radius: 22px;
+  overflow-x: hidden;
 
-      padding: 18px;
+  background:
 
-      box-shadow:
-        0 0 12px
-        rgba(139,92,246,.14),
+    radial-gradient(
+      circle at 18% 8%,
+      rgba(239,35,60,.14),
+      transparent 26%
+    ),
 
-        0 0 35px
-        rgba(139,92,246,.08),
+    radial-gradient(
+      circle at 85% 28%,
+      rgba(255,23,68,.08),
+      transparent 22%
+    ),
 
-        inset 0 0 20px
-        rgba(139,92,246,.025);
+    var(--bg);
 
-      backdrop-filter: blur(15px);
-    }
+}
 
-    .buttons {
-      display: grid;
 
-      gap: 13px;
-    }
+/* شبکه بسیار سبک برای جلوگیری از لگ */
 
-    .btn {
-      width: 100%;
+body::before {
 
-      min-height: 55px;
+  content: "";
 
-      border:
-        1px solid
-        rgba(168,85,247,.55);
+  position: fixed;
 
-      border-radius: 16px;
+  inset: 0;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(139,92,246,.22),
-          rgba(168,85,247,.08)
-        );
+  pointer-events: none;
 
-      color: white;
+  opacity: .35;
 
-      font-size: 15px;
+  background:
 
-      font-weight: bold;
+    linear-gradient(
+      rgba(255,255,255,.008) 1px,
+      transparent 1px
+    ),
 
-      cursor: pointer;
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.008) 1px,
+      transparent 1px
+    );
 
-      transition: .18s ease;
+  background-size:
+    36px 36px;
 
-      box-shadow:
-        0 0 9px
-        rgba(139,92,246,.2),
+}
 
-        inset 0 0 12px
-        rgba(139,92,246,.04);
-    }
 
-    .btn:hover,
-    .btn:focus {
-      transform: translateY(-2px);
+/* =====================================================
+   CONTAINER
+===================================================== */
 
-      border-color:
-        var(--primary2);
+.container {
 
-      box-shadow:
-        0 0 12px
-        rgba(168,85,247,.55),
+  width:
+    min(94%, 620px);
 
-        0 0 30px
-        rgba(168,85,247,.2);
+  margin:
+    0 auto;
 
-      outline: none;
-    }
+  padding:
+    20px
+    0
+    45px;
 
-    .btn:active {
-      transform: scale(.98);
-    }
+  position:
+    relative;
 
-    .btn.cyan {
-      border-color:
-        rgba(34,211,238,.5);
+  z-index:
+    1;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(34,211,238,.16),
-          rgba(34,211,238,.05)
-        );
+}
 
-      box-shadow:
-        0 0 12px
-        rgba(34,211,238,.15);
-    }
 
-    .note {
-      text-align: center;
+/* =====================================================
+   HEADER
+===================================================== */
 
-      color: var(--muted);
+header {
 
-      font-size: 12px;
+  text-align:
+    center;
 
-      line-height: 1.9;
+  padding:
+    25px
+    15px
+    20px;
 
-      margin-top: 15px;
-    }
+}
 
-    .footer {
-      text-align: center;
 
-      color: #696d86;
+.logo {
 
-      font-size: 11px;
+  width:
+    78px;
 
-      margin-top: 25px;
-    }
+  height:
+    78px;
 
+  margin:
+    0 auto 15px;
 
-    /* =========================
-       BUY SCREEN
-    ========================= */
+  border-radius:
+    24px;
 
-    #buyScreen {
-      display: none;
-    }
+  display:
+    flex;
 
-    .buy-header {
-      display: flex;
+  align-items:
+    center;
 
-      align-items: center;
+  justify-content:
+    center;
 
-      justify-content: space-between;
+  font-size:
+    36px;
 
-      gap: 10px;
+  background:
+    linear-gradient(
+      145deg,
+      #261015,
+      #10090b
+    );
 
-      margin-bottom: 16px;
-    }
+  border:
+    1px solid
+    var(--border);
 
-    .buy-title {
-      font-size: 20px;
+  box-shadow:
+    0 0 12px
+    rgba(239,35,60,.3);
 
-      text-shadow:
-        0 0 10px
-        rgba(168,85,247,.6);
-    }
+}
 
-    .refresh-btn {
-      border: 1px solid
-        rgba(34,211,238,.45);
 
-      background:
-        rgba(34,211,238,.08);
+h1 {
 
-      color: white;
+  font-size:
+    25px;
 
-      border-radius: 12px;
+  margin-bottom:
+    10px;
 
-      padding: 9px 12px;
+  text-shadow:
+    0 0 9px
+    rgba(255,51,79,.55);
 
-      cursor: pointer;
+}
 
-      font-size: 12px;
-    }
 
-    .ads-list {
-      display: grid;
+header p {
 
-      gap: 14px;
-    }
+  color:
+    var(--muted);
 
-    .ad-card {
-      overflow: hidden;
+  line-height:
+    1.9;
 
-      border:
-        1px solid
-        rgba(139,92,246,.4);
+  font-size:
+    14px;
 
-      border-radius: 18px;
+}
 
-      background:
-        rgba(12,14,28,.9);
 
-      box-shadow:
-        0 0 15px
-        rgba(139,92,246,.12);
+/* =====================================================
+   CARD
+===================================================== */
 
-      cursor: pointer;
+.card {
 
-      transition: .18s;
-    }
+  background:
+    var(--card);
 
-    .ad-card:active {
-      transform: scale(.985);
-    }
+  border:
+    1px solid
+    var(--border);
 
-    .ad-image {
-      width: 100%;
+  border-radius:
+    22px;
 
-      height: 220px;
+  padding:
+    18px;
 
-      object-fit: cover;
+  box-shadow:
+    0 0 10px
+    rgba(239,35,60,.09);
 
-      display: block;
+}
 
-      background: #111322;
-    }
 
-    .ad-content {
-      padding: 15px;
-    }
+/* =====================================================
+   BUTTONS
+===================================================== */
 
-    .ad-top {
-      display: flex;
+.buttons {
 
-      align-items: center;
+  display:
+    grid;
 
-      justify-content: space-between;
+  gap:
+    13px;
 
-      gap: 10px;
+}
 
-      margin-bottom: 10px;
-    }
 
-    .ad-name {
-      font-size: 16px;
+.btn {
 
-      font-weight: bold;
-    }
+  width:
+    100%;
 
-    .ad-code {
-      font-size: 10px;
+  min-height:
+    55px;
 
-      color: var(--muted);
+  border:
+    1px solid
+    rgba(255,51,79,.52);
 
-      background:
-        rgba(139,92,246,.1);
+  border-radius:
+    16px;
 
-      padding:
-        5px
-        8px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(239,35,60,.19),
+      rgba(255,51,79,.055)
+    );
 
-      border-radius: 8px;
-    }
+  color:
+    white;
 
-    .price {
-      color: #6ee7b7;
+  font-size:
+    15px;
 
-      font-size: 17px;
+  font-weight:
+    bold;
 
-      font-weight: bold;
+  cursor:
+    pointer;
 
-      margin-bottom: 12px;
-    }
+  transition:
+    transform .12s ease,
+    border-color .12s ease,
+    box-shadow .12s ease;
 
-    .mini-info {
-      display: grid;
+  box-shadow:
+    0 0 7px
+    rgba(239,35,60,.13);
 
-      grid-template-columns:
-        repeat(2, 1fr);
+}
 
-      gap: 8px;
-    }
 
-    .info-box {
-      padding: 9px;
+.btn:hover,
+.btn:focus {
 
-      border-radius: 10px;
+  transform:
+    translateY(-1px);
 
-      background:
-        rgba(255,255,255,.025);
+  border-color:
+    var(--primary2);
 
-      border:
-        1px solid
-        rgba(255,255,255,.06);
+  box-shadow:
+    0 0 12px
+    rgba(255,51,79,.3);
 
-      font-size: 11px;
+  outline:
+    none;
 
-      color: #d9dbed;
+}
 
-      line-height: 1.7;
-    }
 
-    .info-box span {
-      color: var(--muted);
-    }
+.btn:active {
 
-    .empty {
-      text-align: center;
+  transform:
+    scale(.985);
 
-      padding: 35px 15px;
+}
 
-      color: var(--muted);
 
-      line-height: 2;
-    }
+.btn.cyan {
 
-    .loading {
-      text-align: center;
+  border-color:
+    rgba(255,92,112,.5);
 
-      padding: 30px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,92,112,.14),
+      rgba(255,92,112,.04)
+    );
 
-      color: var(--muted);
+}
 
-      line-height: 2;
-    }
 
-    .error-box {
-      padding: 15px;
+.note {
 
-      border-radius: 14px;
+  text-align:
+    center;
 
-      border:
-        1px solid
-        rgba(251,63,100,.3);
+  color:
+    var(--muted);
 
-      background:
-        rgba(251,63,100,.06);
+  font-size:
+    12px;
 
-      color: #ff9aae;
+  line-height:
+    1.9;
 
-      text-align: center;
+  margin-top:
+    15px;
 
-      line-height: 1.9;
+}
 
-      font-size: 13px;
-    }
 
+.footer {
 
-    /* =========================
-       DETAILS
-    ========================= */
+  text-align:
+    center;
 
-    #detailsScreen {
-      display: none;
-    }
+  color:
+    #705e62;
 
-    .details-image {
-      width: 100%;
+  font-size:
+    11px;
 
-      max-height: 330px;
+  margin-top:
+    25px;
 
-      object-fit: cover;
+}
 
-      border-radius: 17px;
 
-      margin-bottom: 15px;
+/* =====================================================
+   BUY SCREEN
+===================================================== */
 
-      border:
-        1px solid
-        rgba(139,92,246,.35);
-    }
+#buyScreen {
 
-    .details-title {
-      font-size: 21px;
+  display:
+    none;
 
-      margin-bottom: 8px;
-    }
+}
 
-    .details-code {
-      color: var(--muted);
 
-      font-size: 11px;
+.buy-header {
 
-      margin-bottom: 14px;
-    }
+  display:
+    flex;
 
-    .details-price {
-      font-size: 22px;
+  align-items:
+    center;
 
-      color: #6ee7b7;
+  justify-content:
+    space-between;
 
-      font-weight: bold;
+  gap:
+    10px;
 
-      margin-bottom: 18px;
-    }
+  margin-bottom:
+    16px;
 
-    .details-grid {
-      display: grid;
+}
 
-      grid-template-columns:
-        repeat(2, 1fr);
 
-      gap: 9px;
-    }
+.buy-title {
 
-    .detail-item {
-      padding: 12px;
+  font-size:
+    20px;
 
-      border-radius: 13px;
+  text-shadow:
+    0 0 9px
+    rgba(255,51,79,.5);
 
-      background:
-        rgba(139,92,246,.06);
+}
 
-      border:
-        1px solid
-        rgba(139,92,246,.18);
 
-      line-height: 1.8;
+.refresh-btn {
 
-      font-size: 12px;
-    }
+  border:
+    1px solid
+    rgba(255,92,112,.4);
 
-    .detail-item b {
-      display: block;
+  background:
+    rgba(255,92,112,.07);
 
-      color: var(--muted);
+  color:
+    white;
 
-      font-size: 10px;
+  border-radius:
+    12px;
 
-      margin-bottom: 3px;
-    }
+  padding:
+    9px 12px;
 
-    .description {
-      margin-top: 15px;
+  cursor:
+    pointer;
 
-      padding: 14px;
+  font-size:
+    12px;
 
-      border-radius: 14px;
+}
 
-      background:
-        rgba(255,255,255,.025);
 
-      border:
-        1px solid
-        rgba(255,255,255,.07);
+.ads-list {
 
-      line-height: 2;
+  display:
+    grid;
 
-      font-size: 13px;
-    }
+  gap:
+    14px;
 
-    .seller-box {
-      margin-top: 15px;
+}
 
-      padding: 14px;
 
-      border-radius: 14px;
+.ad-card {
 
-      background:
-        rgba(34,211,238,.05);
+  overflow:
+    hidden;
 
-      border:
-        1px solid
-        rgba(34,211,238,.2);
+  border:
+    1px solid
+    rgba(239,35,60,.35);
 
-      text-align: center;
+  border-radius:
+    18px;
 
-      color: #d8faff;
+  background:
+    rgba(18,10,12,.92);
 
-      line-height: 1.8;
-    }
+  cursor:
+    pointer;
 
-    .back-btn {
-      margin-bottom: 14px;
-    }
+  transition:
+    transform .12s;
 
+}
 
-    /* =========================
-       FORM
-    ========================= */
 
-    dialog {
-      width: min(94%, 600px);
+.ad-card:active {
 
-      max-height: 92vh;
+  transform:
+    scale(.985);
 
-      overflow-y: auto;
+}
 
-      border:
-        1px solid
-        rgba(168,85,247,.5);
 
-      border-radius: 24px;
+.ad-image {
 
-      background:
+  width:
+    100%;
 
-        radial-gradient(
-          circle at 50% 0%,
-          rgba(139,92,246,.13),
-          transparent 40%
-        ),
+  height:
+    220px;
 
-        #0b0c18;
+  object-fit:
+    cover;
 
-      color: var(--text);
+  display:
+    block;
 
-      padding: 0;
+  background:
+    #161012;
 
-      box-shadow:
-        0 0 20px
-        rgba(139,92,246,.35),
+}
 
-        0 0 70px
-        rgba(139,92,246,.16);
-    }
 
-    dialog::backdrop {
-      background:
-        rgba(0,0,0,.75);
+.ad-content {
 
-      backdrop-filter:
-        blur(7px);
-    }
+  padding:
+    15px;
 
-    .dialog-inner {
-      padding: 22px;
-    }
+}
 
-    .dialog-title {
-      text-align: center;
 
-      margin-bottom: 20px;
-    }
+.ad-top {
 
-    .dialog-title h2 {
-      font-size: 21px;
+  display:
+    flex;
 
-      margin-bottom: 7px;
+  align-items:
+    center;
 
-      text-shadow:
-        0 0 12px
-        rgba(168,85,247,.65);
-    }
+  justify-content:
+    space-between;
 
-    .dialog-title p {
-      color: var(--muted);
+  gap:
+    10px;
 
-      font-size: 12px;
-    }
+  margin-bottom:
+    10px;
 
-    label {
-      display: block;
+}
 
-      color: #d8d9eb;
 
-      font-size: 13px;
+.ad-name {
 
-      margin:
-        15px
-        3px
-        7px;
-    }
+  font-size:
+    16px;
 
-    input,
-    textarea {
-      width: 100%;
+  font-weight:
+    bold;
 
-      border:
-        1px solid
-        rgba(139,92,246,.35);
+}
 
-      border-radius: 14px;
 
-      padding: 13px;
+.ad-code {
 
-      background:
-        rgba(7,8,18,.75);
+  font-size:
+    10px;
 
-      color: white;
+  color:
+    var(--muted);
 
-      font-size: 14px;
+  background:
+    rgba(239,35,60,.08);
 
-      outline: none;
+  padding:
+    5px 8px;
 
-      transition: .2s;
-    }
+  border-radius:
+    8px;
 
-    input:focus,
-    textarea:focus {
-      border-color:
-        var(--primary2);
+}
 
-      box-shadow:
-        0 0 9px
-        rgba(168,85,247,.35);
-    }
 
-    textarea {
-      min-height: 105px;
+.price {
 
-      resize: vertical;
+  color:
+    #ff91a0;
 
-      line-height: 1.8;
-    }
+  font-size:
+    17px;
 
-    .section-title {
-      margin-top: 22px;
+  font-weight:
+    bold;
 
-      margin-bottom: 9px;
+  margin-bottom:
+    12px;
 
-      font-size: 14px;
+}
 
-      color: #e7e5ff;
-    }
 
-    .choices {
-      display: grid;
+.mini-info {
 
-      grid-template-columns:
-        repeat(2, 1fr);
+  display:
+    grid;
 
-      gap: 9px;
-    }
+  grid-template-columns:
+    repeat(2,1fr);
 
-    .choice {
-      padding: 12px 7px;
+  gap:
+    8px;
 
-      border-radius: 13px;
+}
 
-      border:
-        1px solid
-        rgba(139,92,246,.3);
 
-      background:
-        rgba(139,92,246,.06);
+.info-box {
 
-      color: #dddaf2;
+  padding:
+    9px;
 
-      cursor: pointer;
+  border-radius:
+    10px;
 
-      font-size: 12px;
-    }
+  background:
+    rgba(255,255,255,.018);
 
-    .choice.selected {
-      border-color:
-        var(--primary2);
+  border:
+    1px solid
+    rgba(255,255,255,.045);
 
-      background:
-        rgba(168,85,247,.18);
+  font-size:
+    11px;
 
-      color: white;
+  color:
+    #eadde0;
 
-      box-shadow:
-        0 0 10px
-        rgba(168,85,247,.4);
-    }
+  line-height:
+    1.7;
 
-    .upload {
-      margin-top: 15px;
-    }
+}
 
-    .upload input {
-      display: none;
-    }
 
-    .upload-label {
-      min-height: 58px;
+.info-box span {
 
-      display: flex;
+  color:
+    var(--muted);
 
-      align-items: center;
+}
 
-      justify-content: center;
 
-      text-align: center;
+.empty,
+.loading {
 
-      border-radius: 15px;
+  text-align:
+    center;
 
-      border:
-        1px dashed
-        rgba(168,85,247,.65);
+  padding:
+    30px 15px;
 
-      background:
-        rgba(139,92,246,.06);
+  color:
+    var(--muted);
 
-      cursor: pointer;
+  line-height:
+    2;
 
-      color: #dddaf2;
-    }
+}
 
-    .thumbs {
-      display: grid;
 
-      grid-template-columns:
-        repeat(5, 1fr);
+.error-box {
 
-      gap: 7px;
+  padding:
+    15px;
 
-      margin-top: 10px;
-    }
+  border-radius:
+    14px;
 
-    .thumbs img {
-      width: 100%;
+  border:
+    1px solid
+    rgba(255,49,84,.3);
 
-      aspect-ratio: 1;
+  background:
+    rgba(255,49,84,.05);
 
-      object-fit: cover;
+  color:
+    #ffabb8;
 
-      border-radius: 10px;
-    }
+  text-align:
+    center;
 
-    .warn {
-      margin-top: 14px;
+  line-height:
+    1.9;
 
-      padding: 12px;
+  font-size:
+    13px;
 
-      border-radius: 13px;
+}
 
-      background:
-        rgba(251,191,36,.06);
 
-      border:
-        1px solid
-        rgba(251,191,36,.25);
+/* =====================================================
+   CP SCREEN
+===================================================== */
 
-      color: #d9d4c3;
+#cpScreen {
 
-      font-size: 12px;
+  display:
+    none;
 
-      line-height: 1.9;
-    }
+}
 
-    .err {
-      min-height: 20px;
 
-      color: #ff718c;
+.cp-grid {
 
-      font-size: 12px;
+  display:
+    grid;
 
-      line-height: 1.7;
+  grid-template-columns:
+    repeat(2,1fr);
 
-      margin: 10px 2px;
-    }
+  gap:
+    11px;
 
-    .success {
-      color: #6ee7b7;
-    }
+}
 
-    .close {
-      margin-top: 10px;
 
-      background:
-        rgba(255,255,255,.035);
+.cp-item {
 
-      border-color:
-        rgba(255,255,255,.12);
+  padding:
+    14px;
 
-      box-shadow: none;
-    }
+  border-radius:
+    16px;
 
-    @media (max-width: 380px) {
+  border:
+    1px solid
+    rgba(239,35,60,.3);
 
-      h1 {
-        font-size: 22px;
-      }
+  background:
+    rgba(239,35,60,.05);
 
-      .dialog-inner {
-        padding: 17px;
-      }
+}
 
-      .choices {
-        grid-template-columns: 1fr;
-      }
 
-      .details-grid {
-        grid-template-columns: 1fr;
-      }
+.cp-name {
 
-    }
+  text-align:
+    center;
 
-  </style>
+  font-size:
+    18px;
+
+  font-weight:
+    bold;
+
+  margin-bottom:
+    10px;
+
+}
+
+
+.cp-item .btn {
+
+  min-height:
+    46px;
+
+  font-size:
+    13px;
+
+}
+
+
+.cp-note {
+
+  margin-top:
+    15px;
+
+  padding:
+    14px;
+
+  border-radius:
+    15px;
+
+  text-align:
+    center;
+
+  line-height:
+    1.9;
+
+  color:
+    #eadfe1;
+
+  background:
+    rgba(255,255,255,.018);
+
+  border:
+    1px solid
+    rgba(255,255,255,.055);
+
+}
+
+
+.cp-large {
+
+  margin-top:
+    11px;
+
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+#detailsScreen {
+
+  display:
+    none;
+
+}
+
+
+.details-image {
+
+  width:
+    100%;
+
+  max-height:
+    330px;
+
+  object-fit:
+    cover;
+
+  border-radius:
+    17px;
+
+  margin-bottom:
+    15px;
+
+  border:
+    1px solid
+    rgba(239,35,60,.32);
+
+}
+
+
+.details-title {
+
+  font-size:
+    21px;
+
+  margin-bottom:
+    8px;
+
+}
+
+
+.details-code {
+
+  color:
+    var(--muted);
+
+  font-size:
+    11px;
+
+  margin-bottom:
+    14px;
+
+}
+
+
+.details-price {
+
+  font-size:
+    22px;
+
+  color:
+    #ff91a0;
+
+  font-weight:
+    bold;
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.details-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:
+    9px;
+
+}
+
+
+.detail-item {
+
+  padding:
+    12px;
+
+  border-radius:
+    13px;
+
+  background:
+    rgba(239,35,60,.045);
+
+  border:
+    1px solid
+    rgba(239,35,60,.15);
+
+  line-height:
+    1.8;
+
+  font-size:
+    12px;
+
+}
+
+
+.detail-item b {
+
+  display:
+    block;
+
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
+
+  margin-bottom:
+    3px;
+
+}
+
+
+.description {
+
+  margin-top:
+    15px;
+
+  padding:
+    14px;
+
+  border-radius:
+    14px;
+
+  background:
+    rgba(255,255,255,.018);
+
+  border:
+    1px solid
+    rgba(255,255,255,.055);
+
+  line-height:
+    2;
+
+  font-size:
+    13px;
+
+}
+
+
+.seller-box {
+
+  margin-top:
+    15px;
+
+  padding:
+    14px;
+
+  border-radius:
+    14px;
+
+  background:
+    rgba(255,51,79,.035);
+
+  border:
+    1px solid
+    rgba(255,51,79,.15);
+
+  text-align:
+    center;
+
+  color:
+    #ffe2e6;
+
+  line-height:
+    1.8;
+
+}
+
+
+.back-btn {
+
+  margin-bottom:
+    14px;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+dialog {
+
+  width:
+    min(94%,600px);
+
+  max-height:
+    92vh;
+
+  margin:
+    auto;
+
+  overflow-y:
+    auto;
+
+  border:
+    1px solid
+    rgba(255,51,79,.5);
+
+  border-radius:
+    24px;
+
+  background:
+    #0d080a;
+
+  color:
+    var(--text);
+
+  padding:
+    0;
+
+  box-shadow:
+    0 0 16px
+    rgba(239,35,60,.24);
+
+}
+
+
+dialog::backdrop {
+
+  background:
+    rgba(0,0,0,.75);
+
+}
+
+
+.dialog-inner {
+
+  padding:
+    22px;
+
+}
+
+
+.dialog-title {
+
+  text-align:
+    center;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.dialog-title h2 {
+
+  font-size:
+    21px;
+
+  margin-bottom:
+    7px;
+
+  text-shadow:
+    0 0 10px
+    rgba(255,51,79,.55);
+
+}
+
+
+.dialog-title p {
+
+  color:
+    var(--muted);
+
+  font-size:
+    12px;
+
+}
+
+
+label {
+
+  display:
+    block;
+
+  color:
+    #e8dce0;
+
+  font-size:
+    13px;
+
+  margin:
+    15px 3px 7px;
+
+}
+
+
+input,
+textarea {
+
+  width:
+    100%;
+
+  border:
+    1px solid
+    rgba(239,35,60,.3);
+
+  border-radius:
+    14px;
+
+  padding:
+    13px;
+
+  background:
+    rgba(7,5,6,.8);
+
+  color:
+    white;
+
+  font-size:
+    14px;
+
+  outline:
+    none;
+
+  transition:
+    .15s;
+
+}
+
+
+input:focus,
+textarea:focus {
+
+  border-color:
+    var(--primary2);
+
+  box-shadow:
+    0 0 7px
+    rgba(255,51,79,.22);
+
+}
+
+
+textarea {
+
+  min-height:
+    105px;
+
+  resize:
+    vertical;
+
+  line-height:
+    1.8;
+
+}
+
+
+.section-title {
+
+  margin-top:
+    22px;
+
+  margin-bottom:
+    9px;
+
+  font-size:
+    14px;
+
+  color:
+    #f0e6e8;
+
+}
+
+
+.choices {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:
+    9px;
+
+}
+
+
+.choice {
+
+  padding:
+    12px 7px;
+
+  border-radius:
+    13px;
+
+  border:
+    1px solid
+    rgba(239,35,60,.28);
+
+  background:
+    rgba(239,35,60,.045);
+
+  color:
+    #e5dce0;
+
+  cursor:
+    pointer;
+
+  font-size:
+    12px;
+
+}
+
+
+.choice.selected {
+
+  border-color:
+    var(--primary2);
+
+  background:
+    rgba(255,51,79,.15);
+
+  color:
+    white;
+
+  box-shadow:
+    0 0 8px
+    rgba(255,51,79,.25);
+
+}
+
+
+.upload {
+
+  margin-top:
+    15px;
+
+}
+
+
+.upload input {
+
+  display:
+    none;
+
+}
+
+
+.upload-label {
+
+  min-height:
+    58px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  text-align:
+    center;
+
+  border-radius:
+    15px;
+
+  border:
+    1px dashed
+    rgba(255,51,79,.55);
+
+  background:
+    rgba(239,35,60,.045);
+
+  cursor:
+    pointer;
+
+  color:
+    #e5dce0;
+
+}
+
+
+.thumbs {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:
+    7px;
+
+  margin-top:
+    10px;
+
+}
+
+
+.thumbs img {
+
+  width:
+    100%;
+
+  aspect-ratio:
+    1;
+
+  object-fit:
+    cover;
+
+  border-radius:
+    10px;
+
+}
+
+
+.warn {
+
+  margin-top:
+    14px;
+
+  padding:
+    12px;
+
+  border-radius:
+    13px;
+
+  background:
+    rgba(255,191,36,.035);
+
+  border:
+    1px solid
+    rgba(255,191,36,.18);
+
+  color:
+    #d9d4c3;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.9;
+
+}
+
+
+.err {
+
+  min-height:
+    20px;
+
+  color:
+    #ff718c;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.7;
+
+  margin:
+    10px 2px;
+
+}
+
+
+.success {
+
+  color:
+    #ff9eaa;
+
+}
+
+
+.close {
+
+  margin-top:
+    10px;
+
+  background:
+    rgba(255,255,255,.025);
+
+  border-color:
+    rgba(255,255,255,.1);
+
+  box-shadow:
+    none;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:380px) {
+
+  h1 {
+
+    font-size:
+      22px;
+
+  }
+
+
+  .dialog-inner {
+
+    padding:
+      17px;
+
+  }
+
+
+  .choices {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .cp-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .details-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+}
+
+</style>
 
 </head>
 
@@ -950,1641 +1499,2156 @@
 
 <div class="container">
 
-  <!-- =========================
-       HOME
-  ========================= -->
 
-  <div id="homeScreen">
+<!-- =====================================================
+     HOME
+===================================================== -->
 
-    <header>
+<div id="homeScreen">
 
-      <div class="logo">
-        🎮
-      </div>
+<header>
 
-      <h1>
-        خرید و فروش اکانت کالاف
-      </h1>
+<div class="logo">
+🎮
+</div>
 
-      <p>
-        آگهی اکانتت رو ثبت کن یا برای خرید اکانت اقدام کن.
-        <br>
-        نسخه پشتیبان VGR STORE
-      </p>
+<h1>
+خرید و فروش اکانت کالاف
+</h1>
 
-    </header>
+<p>
 
+آگهی اکانتت رو ثبت کن یا برای خرید اکانت و CP اقدام کن.
 
-    <main class="card">
+<br>
 
-      <div class="buttons">
+نسخه پشتیبان VGR STORE
 
-        <button
-          class="btn"
-          id="open"
-          type="button"
-        >
-          📋 ثبت آگهی
-        </button>
+</p>
+
+</header>
 
 
-        <button
-          class="btn cyan"
-          id="buy"
-          type="button"
-        >
-          🛒 خرید اکانت
-        </button>
+<main class="card">
 
-      </div>
+<div class="buttons">
 
 
-      <p class="note">
-
-        ⚠️ این مینی‌اپ زمانی استفاده می‌شود
-        که ربات در دسترس نباشد.
-
-        <br>
-
-        بعد از ثبت آگهی،
-        اطلاعات برای ادمین ارسال می‌شود.
-
-      </p>
-
-    </main>
-
-  </div>
+<button
+  class="btn"
+  id="open"
+  type="button"
+>
+📋 ثبت آگهی
+</button>
 
 
-  <!-- =========================
-       BUY SCREEN
-  ========================= -->
-
-  <div id="buyScreen">
-
-    <div class="buy-header">
-
-      <div class="buy-title">
-        🛒 آگهی‌های فروش
-      </div>
-
-      <button
-        class="refresh-btn"
-        id="refreshAds"
-        type="button"
-      >
-        🔄 بروزرسانی
-      </button>
-
-    </div>
+<button
+  class="btn cyan"
+  id="buy"
+  type="button"
+>
+🛒 خرید اکانت
+</button>
 
 
-    <div class="card">
+<button
+  class="btn"
+  id="cp"
+  type="button"
+>
+💳 خرید CP
+</button>
 
-      <div
-        id="adsList"
-        class="ads-list"
-      >
-
-        <div class="loading">
-          ⏳ در حال دریافت آگهی‌ها...
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <button
-      class="btn close"
-      id="backHome"
-      type="button"
-    >
-      ↩️ بازگشت
-    </button>
-
-  </div>
-
-
-  <!-- =========================
-       DETAILS SCREEN
-  ========================= -->
-
-  <div id="detailsScreen">
-
-    <button
-      class="btn back-btn"
-      id="backAds"
-      type="button"
-    >
-      ↩️ بازگشت به آگهی‌ها
-    </button>
-
-
-    <div class="card">
-
-      <div id="detailsContent"></div>
-
-    </div>
-
-  </div>
-
-
-  <div class="footer">
-
-    VGR STORE • Call of Duty Mobile
-
-  </div>
 
 </div>
 
 
-<!-- =========================
+<p class="note">
+
+⚠️ این مینی‌اپ زمانی استفاده می‌شود
+که ربات در دسترس نباشد.
+
+<br>
+
+بعد از ثبت آگهی،
+اطلاعات برای ادمین ارسال می‌شود.
+
+</p>
+
+</main>
+
+</div>
+
+
+<!-- =====================================================
+     BUY SCREEN
+===================================================== -->
+
+<div id="buyScreen">
+
+
+<div class="buy-header">
+
+<div class="buy-title">
+🛒 آگهی‌های فروش
+</div>
+
+
+<button
+  class="refresh-btn"
+  id="refreshAds"
+  type="button"
+>
+🔄 بروزرسانی
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div
+  id="adsList"
+  class="ads-list"
+>
+
+<div class="loading">
+⏳ در حال دریافت آگهی‌ها...
+</div>
+
+</div>
+
+</div>
+
+
+<button
+  class="btn close"
+  id="backHome"
+  type="button"
+>
+↩️ بازگشت
+</button>
+
+
+</div>
+
+
+<!-- =====================================================
+     CP SCREEN
+===================================================== -->
+
+<div id="cpScreen">
+
+
+<div class="buy-header">
+
+<div class="buy-title">
+💳 خرید CP کالاف دیوتی موبایل
+</div>
+
+</div>
+
+
+<div class="card">
+
+
+<div class="cp-grid">
+
+
+<div class="cp-item">
+
+<div class="cp-name">
+80 CP
+</div>
+
+<button
+  class="btn"
+  type="button"
+  onclick="buyCP(80)"
+>
+🛒 خرید
+</button>
+
+</div>
+
+
+<div class="cp-item">
+
+<div class="cp-name">
+160 CP
+</div>
+
+<button
+  class="btn"
+  type="button"
+  onclick="buyCP(160)"
+>
+🛒 خرید
+</button>
+
+</div>
+
+
+<div class="cp-item">
+
+<div class="cp-name">
+240 CP
+</div>
+
+<button
+  class="btn"
+  type="button"
+  onclick="buyCP(240)"
+>
+🛒 خرید
+</button>
+
+</div>
+
+
+<div class="cp-item">
+
+<div class="cp-name">
+320 CP
+</div>
+
+<button
+  class="btn"
+  type="button"
+  onclick="buyCP(320)"
+>
+🛒 خرید
+</button>
+
+</div>
+
+
+<div class="cp-item">
+
+<div class="cp-name">
+400 CP
+</div>
+
+<button
+  class="btn"
+  type="button"
+  onclick="buyCP(400)"
+>
+🛒 خرید
+</button>
+
+</div>
+
+
+<div class="cp-item">
+
+<div class="cp-name">
+420 CP
+</div>
+
+<button
+  class="btn"
+  type="button"
+  onclick="buyCP(420)"
+>
+🛒 خرید
+</button>
+
+</div>
+
+
+<div class="cp-item">
+
+<div class="cp-name">
+480 CP
+</div>
+
+<button
+  class="btn"
+  type="button"
+  onclick="buyCP(480)"
+>
+🛒 خرید
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="cp-note">
+
+برای خرید CP بیشتر به ادمین پیام دهید
+
+
+<button
+  class="btn cyan cp-large"
+  id="largeCp"
+  type="button"
+>
+💬 ارسال پیام به ادمین
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<button
+  class="btn close"
+  id="backHomeCp"
+  type="button"
+>
+↩️ بازگشت
+</button>
+
+
+</div>
+
+
+<!-- =====================================================
+     DETAILS SCREEN
+===================================================== -->
+
+<div id="detailsScreen">
+
+
+<button
+  class="btn back-btn"
+  id="backAds"
+  type="button"
+>
+↩️ بازگشت به آگهی‌ها
+</button>
+
+
+<div class="card">
+
+<div id="detailsContent"></div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+VGR STORE • Call of Duty Mobile
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
      FORM
-========================= -->
+===================================================== -->
 
 <dialog id="dlg">
 
-  <div class="dialog-inner">
-
-    <div class="dialog-title">
-
-      <h2>
-        📋 ثبت آگهی اکانت
-      </h2>
-
-      <p>
-        اطلاعات اکانت را کامل وارد کنید
-      </p>
-
-    </div>
-
-
-    <form
-      id="f"
-      novalidate
-    >
-
-      <label for="uid">
-        🆔 UID اکانت
-      </label>
-
-      <input
-        id="uid"
-        inputmode="numeric"
-        placeholder="مثلاً 123456789"
-      >
-
-
-      <label for="name">
-        👤 اسم اکانت
-      </label>
-
-      <input
-        id="name"
-        maxlength="40"
-        placeholder="نام اکانت"
-      >
-
-
-      <label for="level">
-        ⭐ لول اکانت
-      </label>
-
-      <input
-        id="level"
-        inputmode="numeric"
-        placeholder="مثلاً 350"
-      >
-
-
-      <div class="section-title">
-        🏆 رنک اکانت
-      </div>
-
-
-      <div
-        class="choices"
-        id="rankChoices"
-      >
-
-        <button
-          type="button"
-          class="choice"
-          data-value="Rookie"
-        >
-          Rookie
-        </button>
-
-        <button
-          type="button"
-          class="choice"
-          data-value="Veteran"
-        >
-          Veteran
-        </button>
-
-        <button
-          type="button"
-          class="choice"
-          data-value="Elite"
-        >
-          Elite
-        </button>
-
-        <button
-          type="button"
-          class="choice"
-          data-value="Pro"
-        >
-          Pro
-        </button>
-
-        <button
-          type="button"
-          class="choice"
-          data-value="Master"
-        >
-          Master
-        </button>
-
-        <button
-          type="button"
-          class="choice"
-          data-value="Grandmaster"
-        >
-          Grandmaster
-        </button>
-
-        <button
-          type="button"
-          class="choice"
-          data-value="Legendary"
-        >
-          Legendary
-        </button>
 
-      </div>
+<div class="dialog-inner">
 
-
-      <input
-        id="rank"
-        type="hidden"
-      >
 
+<div class="dialog-title">
 
-      <label for="leg">
-        🔥 تعداد گان لجند
-      </label>
+<h2>
+📋 ثبت آگهی اکانت
+</h2>
 
-      <input
-        id="leg"
-        inputmode="numeric"
-        placeholder="مثلاً 8"
-      >
-
-
-      <label for="myth">
-        🔮 تعداد گان میتیک
-      </label>
-
-      <input
-        id="myth"
-        inputmode="numeric"
-        placeholder="مثلاً 3"
-      >
+<p>
+اطلاعات اکانت را کامل وارد کنید
+</p>
 
-
-      <label for="price">
-        💰 قیمت اکانت (تومان)
-      </label>
+</div>
 
-      <input
-        id="price"
-        inputmode="numeric"
-        placeholder="مثلاً 15000000"
-      >
 
+<form
+  id="f"
+  novalidate
+>
 
-      <div class="section-title">
-        🔐 نوع سیو اکانت
-      </div>
 
+<label for="uid">
+🆔 UID اکانت
+</label>
 
-      <div
-        class="choices"
-        id="saveChoices"
-      >
+<input
+  id="uid"
+  inputmode="numeric"
+  placeholder="مثلاً 123456789"
+>
 
-        <button
-          type="button"
-          class="choice"
-          data-value="Activision"
-        >
-          Activision
-        </button>
 
-        <button
-          type="button"
-          class="choice"
-          data-value="Google"
-        >
-          Google
-        </button>
+<label for="name">
+👤 اسم اکانت
+</label>
 
-        <button
-          type="button"
-          class="choice"
-          data-value="Facebook"
-        >
-          Facebook
-        </button>
+<input
+  id="name"
+  maxlength="40"
+  placeholder="نام اکانت"
+>
 
-      </div>
 
+<label for="level">
+⭐ لول اکانت
+</label>
 
-      <input
-        id="saveType"
-        type="hidden"
-      >
+<input
+  id="level"
+  inputmode="numeric"
+  placeholder="مثلاً 350"
+>
 
 
-      <label for="seller">
-        👤 آیدی فروشنده
-      </label>
+<div class="section-title">
+🏆 رنک اکانت
+</div>
 
-      <input
-        id="seller"
-        placeholder="@username"
-      >
 
+<div
+  class="choices"
+  id="rankChoices"
+>
 
-      <label for="description">
-        📝 توضیحات اضافه
-      </label>
 
-      <textarea
-        id="description"
-        maxlength="700"
-        placeholder="توضیحات مربوط به اکانت..."
-      ></textarea>
+<button
+  type="button"
+  class="choice"
+  data-value="Rookie"
+>
+Rookie
+</button>
 
 
-      <div class="upload">
+<button
+  type="button"
+  class="choice"
+  data-value="Veteran"
+>
+Veteran
+</button>
 
-        <label
-          for="file"
-          class="upload-label"
-        >
-          📸 انتخاب عکس اکانت
-          <br>
-          حداکثر ۵ عکس
-        </label>
 
-        <input
-          id="file"
-          type="file"
-          accept="image/*"
-          multiple
-        >
+<button
+  type="button"
+  class="choice"
+  data-value="Elite"
+>
+Elite
+</button>
 
-      </div>
 
+<button
+  type="button"
+  class="choice"
+  data-value="Pro"
+>
+Pro
+</button>
 
-      <div
-        class="thumbs"
-        id="thumbs"
-      ></div>
 
+<button
+  type="button"
+  class="choice"
+  data-value="Master"
+>
+Master
+</button>
 
-      <div class="warn">
 
-        📸 عکس اکانت را همراه آگهی در تلگرام ارسال کنید.
+<button
+  type="button"
+  class="choice"
+  data-value="Grandmaster"
+>
+Grandmaster
+</button>
 
-        <br>
 
-        ⚠️ در صورت ناقص بودن اطلاعات،
-        آگهی ممکن است تأیید نشود.
+<button
+  type="button"
+  class="choice"
+  data-value="Legendary"
+>
+Legendary
+</button>
 
-      </div>
 
+</div>
 
-      <div
-        class="err"
-        id="err"
-        role="alert"
-      ></div>
 
+<input
+  id="rank"
+  type="hidden"
+>
 
-      <button
-        class="btn"
-        type="submit"
-      >
-        🚀 ارسال آگهی به ادمین
-      </button>
 
+<label for="leg">
+🔥 تعداد گان لجند
+</label>
 
-      <button
-        class="btn close"
-        type="button"
-        id="close"
-      >
-        بستن
-      </button>
+<input
+  id="leg"
+  inputmode="numeric"
+  placeholder="مثلاً 8"
+>
 
-    </form>
 
-  </div>
+<label for="myth">
+🔮 تعداد گان میتیک
+</label>
+
+<input
+  id="myth"
+  inputmode="numeric"
+  placeholder="مثلاً 3"
+>
+
+
+<label for="price">
+💰 قیمت اکانت (تومان)
+</label>
+
+<input
+  id="price"
+  inputmode="numeric"
+  placeholder="مثلاً 15000000"
+>
+
+
+<div class="section-title">
+🔐 نوع سیو اکانت
+</div>
+
+
+<div
+  class="choices"
+  id="saveChoices"
+>
+
+
+<button
+  type="button"
+  class="choice"
+  data-value="Activision"
+>
+Activision
+</button>
+
+
+<button
+  type="button"
+  class="choice"
+  data-value="Google"
+>
+Google
+</button>
+
+
+<button
+  type="button"
+  class="choice"
+  data-value="Facebook"
+>
+Facebook
+</button>
+
+
+</div>
+
+
+<input
+  id="saveType"
+  type="hidden"
+>
+
+
+<label for="seller">
+👤 آیدی فروشنده
+</label>
+
+<input
+  id="seller"
+  placeholder="@username"
+>
+
+
+<label for="description">
+📝 توضیحات اضافه
+</label>
+
+<textarea
+  id="description"
+  maxlength="700"
+  placeholder="توضیحات مربوط به اکانت..."
+></textarea>
+
+
+<div class="upload">
+
+
+<label
+  for="file"
+  class="upload-label"
+>
+
+📸 انتخاب عکس اکانت
+
+<br>
+
+حداکثر ۵ عکس
+
+</label>
+
+
+<input
+  id="file"
+  type="file"
+  accept="image/*"
+  multiple
+>
+
+
+</div>
+
+
+<div
+  class="thumbs"
+  id="thumbs"
+></div>
+
+
+<div class="warn">
+
+📸 عکس اکانت را همراه آگهی در تلگرام ارسال کنید.
+
+<br>
+
+⚠️ در صورت ناقص بودن اطلاعات،
+آگهی ممکن است تأیید نشود.
+
+</div>
+
+
+<div
+  class="err"
+  id="err"
+  role="alert"
+></div>
+
+
+<button
+  class="btn"
+  type="submit"
+>
+🚀 ارسال آگهی به ادمین
+</button>
+
+
+<button
+  class="btn close"
+  type="button"
+  id="close"
+>
+بستن
+</button>
+
+
+</form>
+
+</div>
 
 </dialog>
 
 
 <script>
 
-  /* =====================================
-     تنظیمات
-  ===================================== */
-
-  var ADMIN_USERNAME =
-    "Parsa_xxxxx";
+/* =====================================================
+   SETTINGS
+===================================================== */
 
 
-  /*
-     فایل اصلی آگهی‌ها
-  */
+/*
+   آیدی ادمین
 
-  var ADS_URL =
-    "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads.json";
+   بدون @ بنویس
 
+   مثال:
+   Parsa_xxxxx
+*/
 
-  /* =====================================
-     Telegram
-  ===================================== */
-
-  var tg =
-    window.Telegram &&
-    window.Telegram.WebApp
-      ? window.Telegram.WebApp
-      : null;
+var ADMIN_USERNAME =
+  "Parsa_xxxxx";
 
 
-  if (tg) {
+/*
+   فایل آگهی‌ها
+*/
 
-    tg.ready();
-
-    tg.expand();
-
-  }
-
-
-  /* =====================================
-     عناصر
-  ===================================== */
-
-  var dlg =
-    document.getElementById("dlg");
-
-  var err =
-    document.getElementById("err");
-
-  var files = [];
+var ADS_URL =
+  "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads.json";
 
 
-  var homeScreen =
-    document.getElementById(
-      "homeScreen"
+/* =====================================================
+   TELEGRAM
+===================================================== */
+
+var tg =
+  window.Telegram &&
+  window.Telegram.WebApp
+    ? window.Telegram.WebApp
+    : null;
+
+
+if (tg) {
+
+  tg.ready();
+
+  tg.expand();
+
+}
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+var dlg =
+  document.getElementById(
+    "dlg"
+  );
+
+
+var err =
+  document.getElementById(
+    "err"
+  );
+
+
+var files = [];
+
+
+var homeScreen =
+  document.getElementById(
+    "homeScreen"
+  );
+
+
+var buyScreen =
+  document.getElementById(
+    "buyScreen"
+  );
+
+
+var cpScreen =
+  document.getElementById(
+    "cpScreen"
+  );
+
+
+var detailsScreen =
+  document.getElementById(
+    "detailsScreen"
+  );
+
+
+var adsList =
+  document.getElementById(
+    "adsList"
+  );
+
+
+var detailsContent =
+  document.getElementById(
+    "detailsContent"
+  );
+
+
+/* =====================================================
+   TELEGRAM MESSAGE FUNCTION
+===================================================== */
+
+function openTelegramMessage(
+  text
+) {
+
+  var url =
+    "https://t.me/" +
+    ADMIN_USERNAME +
+    "?text=" +
+    encodeURIComponent(
+      text
     );
 
-  var buyScreen =
-    document.getElementById(
-      "buyScreen"
-    );
 
-  var detailsScreen =
-    document.getElementById(
-      "detailsScreen"
-    );
+  if (
+    tg &&
+    tg.openTelegramLink
+  ) {
 
-  var adsList =
-    document.getElementById(
-      "adsList"
-    );
-
-  var detailsContent =
-    document.getElementById(
-      "detailsContent"
-    );
-
-
-  /* =====================================
-     باز کردن فرم ثبت آگهی
-  ===================================== */
-
-  document
-    .getElementById("open")
-    .onclick = function () {
-
-      err.textContent = "";
-
-      dlg.showModal();
-
-    };
-
-
-  /* =====================================
-     بستن فرم
-  ===================================== */
-
-  document
-    .getElementById("close")
-    .onclick = function () {
-
-      dlg.close();
-
-    };
-
-
-  /* =====================================
-     باز کردن بخش خرید
-  ===================================== */
-
-  document
-    .getElementById("buy")
-    .onclick = function () {
-
-      homeScreen.style.display =
-        "none";
-
-      detailsScreen.style.display =
-        "none";
-
-      buyScreen.style.display =
-        "block";
-
-      loadAds();
-
-    };
-
-
-  /* =====================================
-     بازگشت به خانه
-  ===================================== */
-
-  document
-    .getElementById("backHome")
-    .onclick = function () {
-
-      buyScreen.style.display =
-        "none";
-
-      detailsScreen.style.display =
-        "none";
-
-      homeScreen.style.display =
-        "block";
-
-    };
-
-
-  /* =====================================
-     بازگشت به لیست
-  ===================================== */
-
-  document
-    .getElementById("backAds")
-    .onclick = function () {
-
-      detailsScreen.style.display =
-        "none";
-
-      buyScreen.style.display =
-        "block";
-
-    };
-
-
-  /* =====================================
-     بروزرسانی
-  ===================================== */
-
-  document
-    .getElementById("refreshAds")
-    .onclick = function () {
-
-      loadAds();
-
-    };
-
-
-  /* =====================================
-     دریافت آگهی‌ها
-  ===================================== */
-
-  async function loadAds() {
-
-    adsList.innerHTML =
-
-      '<div class="loading">' +
-      '⏳ در حال دریافت آگهی‌ها...' +
-      '</div>';
-
-
-    try {
-
-      /*
-        timestamp برای جلوگیری از
-        کش شدن ads.json
-      */
-
-      var url =
-        ADS_URL +
-        "?t=" +
-        Date.now();
-
-
-      var response =
-        await fetch(
-          url,
-          {
-            cache: "no-store"
-          }
-        );
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          "HTTP " +
-          response.status
-        );
-
-      }
-
-
-      var data =
-        await response.json();
-
-
-      if (
-        !data ||
-        !Array.isArray(data.ads)
-      ) {
-
-        throw new Error(
-          "ساختار ads.json صحیح نیست."
-        );
-
-      }
-
-
-      var now =
-        Math.floor(
-          Date.now() / 1000
-        );
-
-
-      /*
-        فقط آگهی‌های منقضی نشده
-      */
-
-      var activeAds =
-        data.ads.filter(
-          function (ad) {
-
-            return (
-              !ad.expires_at ||
-              Number(ad.expires_at) > now
-            );
-
-          }
-        );
-
-
-      renderAds(activeAds);
-
-
-    } catch (error) {
-
-      console.error(
-        "ADS ERROR:",
-        error
-      );
-
-
-      adsList.innerHTML =
-
-        '<div class="error-box">' +
-
-        '❌ دریافت آگهی‌ها ناموفق بود.' +
-
-        '<br><br>' +
-
-        'ممکن است اینترنت یا فایل ads.json ' +
-        'موقتاً در دسترس نباشد.' +
-
-        '<br><br>' +
-
-        '<button ' +
-        'class="refresh-btn" ' +
-        'onclick="loadAds()">' +
-        '🔄 تلاش دوباره' +
-        '</button>' +
-
-        '</div>';
-
-    }
-
-  }
-
-
-  /* =====================================
-     نمایش آگهی‌ها
-  ===================================== */
-
-  function renderAds(ads) {
-
-    adsList.innerHTML = "";
-
-
-    if (!ads.length) {
-
-      adsList.innerHTML =
-
-        '<div class="empty">' +
-
-        '📭 در حال حاضر آگهی فعالی وجود ندارد.' +
-
-        '<br>' +
-
-        'بعداً دوباره سر بزنید. ❤️' +
-
-        '</div>';
-
-      return;
-
-    }
-
-
-    ads.forEach(
-      function (ad) {
-
-        var card =
-          document.createElement(
-            "div"
-          );
-
-
-        card.className =
-          "ad-card";
-
-
-        var image =
-          ad.image_url
-            ? ad.image_url
-            : "";
-
-
-        var name =
-          escapeHtml(
-            ad.account_name ||
-            "اکانت کالاف"
-          );
-
-
-        var price =
-          escapeHtml(
-            ad.price ||
-            "توافقی"
-          );
-
-
-        var rank =
-          escapeHtml(
-            ad.rank ||
-            "-"
-          );
-
-
-        var level =
-          escapeHtml(
-            ad.level ||
-            "-"
-          );
-
-
-        var legendary =
-          escapeHtml(
-            ad.legendary_count ||
-            "0"
-          );
-
-
-        var mythic =
-          escapeHtml(
-            ad.mythic_count ||
-            "0"
-          );
-
-
-        card.innerHTML =
-
-          '<img ' +
-          'class="ad-image" ' +
-          'src="' +
-          image +
-          '" ' +
-          'alt="تصویر اکانت" ' +
-          'onerror="this.style.display=\'none\'">' +
-
-          '<div class="ad-content">' +
-
-          '<div class="ad-top">' +
-
-          '<div class="ad-name">' +
-          name +
-          '</div>' +
-
-          '<div class="ad-code">' +
-          'کد #' +
-          escapeHtml(
-            ad.ad_code || "-"
-          ) +
-          '</div>' +
-
-          '</div>' +
-
-          '<div class="price">' +
-          '💰 ' +
-          price +
-          ' تومان' +
-          '</div>' +
-
-          '<div class="mini-info">' +
-
-          '<div class="info-box">' +
-          '<span>⭐ لول</span><br>' +
-          level +
-          '</div>' +
-
-          '<div class="info-box">' +
-          '<span>🏆 رنک</span><br>' +
-          rank +
-          '</div>' +
-
-          '<div class="info-box">' +
-          '<span>🔥 لجند</span><br>' +
-          legendary +
-          '</div>' +
-
-          '<div class="info-box">' +
-          '<span>🔮 میتیک</span><br>' +
-          mythic +
-          '</div>' +
-
-          '</div>' +
-
-          '</div>';
-
-
-        card.onclick =
-          function () {
-
-            showDetails(ad);
-
-          };
-
-
-        adsList.appendChild(
-          card
-        );
-
-      }
+    tg.openTelegramLink(
+      url
     );
 
   }
 
+  else {
 
-  /* =====================================
-     نمایش جزئیات
-  ===================================== */
+    window.open(
+      url,
+      "_blank"
+    );
 
-  function showDetails(ad) {
+  }
+
+}
+
+
+/* =====================================================
+   OPEN FORM
+===================================================== */
+
+document
+  .getElementById("open")
+  .onclick =
+  function () {
+
+    err.textContent =
+      "";
+
+    dlg.showModal();
+
+  };
+
+
+/* =====================================================
+   CLOSE FORM
+===================================================== */
+
+document
+  .getElementById("close")
+  .onclick =
+  function () {
+
+    dlg.close();
+
+  };
+
+
+/* =====================================================
+   BUY ACCOUNTS
+===================================================== */
+
+document
+  .getElementById("buy")
+  .onclick =
+  function () {
+
+    homeScreen.style.display =
+      "none";
+
+    cpScreen.style.display =
+      "none";
+
+    detailsScreen.style.display =
+      "none";
+
+    buyScreen.style.display =
+      "block";
+
+    loadAds();
+
+  };
+
+
+/* =====================================================
+   BUY CP
+===================================================== */
+
+document
+  .getElementById("cp")
+  .onclick =
+  function () {
+
+    homeScreen.style.display =
+      "none";
 
     buyScreen.style.display =
       "none";
 
     detailsScreen.style.display =
+      "none";
+
+    cpScreen.style.display =
       "block";
 
+  };
 
-    var seller =
-      String(
-        ad.seller_username ||
-        ""
-      ).replace(
-        /^@/,
-        ""
+
+/* =====================================================
+   BACK HOME
+===================================================== */
+
+document
+  .getElementById("backHome")
+  .onclick =
+  function () {
+
+    buyScreen.style.display =
+      "none";
+
+    detailsScreen.style.display =
+      "none";
+
+    cpScreen.style.display =
+      "none";
+
+    homeScreen.style.display =
+      "block";
+
+  };
+
+
+/* =====================================================
+   BACK HOME FROM CP
+===================================================== */
+
+document
+  .getElementById("backHomeCp")
+  .onclick =
+  function () {
+
+    cpScreen.style.display =
+      "none";
+
+    homeScreen.style.display =
+      "block";
+
+  };
+
+
+/* =====================================================
+   BACK ADS
+===================================================== */
+
+document
+  .getElementById("backAds")
+  .onclick =
+  function () {
+
+    detailsScreen.style.display =
+      "none";
+
+    buyScreen.style.display =
+      "block";
+
+  };
+
+
+/* =====================================================
+   REFRESH
+===================================================== */
+
+document
+  .getElementById("refreshAds")
+  .onclick =
+  function () {
+
+    loadAds();
+
+  };
+
+
+/* =====================================================
+   CP PURCHASE
+===================================================== */
+
+function buyCP(
+  amount
+) {
+
+  var message =
+    "خرید " +
+    amount +
+    "CP کالاف دیوتی موبایل";
+
+
+  openTelegramMessage(
+    message
+  );
+
+}
+
+
+/* =====================================================
+   LARGE CP
+===================================================== */
+
+document
+  .getElementById("largeCp")
+  .onclick =
+  function () {
+
+    openTelegramMessage(
+      "خرید سیپی حجم بالا✅️"
+    );
+
+  };
+
+
+/* =====================================================
+   LOAD ADS
+===================================================== */
+
+async function loadAds() {
+
+  adsList.innerHTML =
+
+    '<div class="loading">' +
+
+    '⏳ در حال دریافت آگهی‌ها...' +
+
+    '</div>';
+
+
+  try {
+
+    var url =
+      ADS_URL +
+      "?t=" +
+      Date.now();
+
+
+    var response =
+      await fetch(
+        url,
+        {
+          cache:
+            "no-store"
+        }
       );
 
 
-    var sellerButton = "";
+    if (!response.ok) {
 
-
-    if (seller) {
-
-      sellerButton =
-
-        '<button ' +
-        'class="btn cyan" ' +
-        'type="button" ' +
-        'onclick="contactSeller(\'' +
-        escapeJs(seller) +
-        '\')">' +
-
-        '💬 تماس با فروشنده' +
-
-        '</button>';
+      throw new Error(
+        "HTTP " +
+        response.status
+      );
 
     }
 
 
-    detailsContent.innerHTML =
+    var data =
+      await response.json();
 
-      (
-        ad.image_url
-          ? '<img ' +
-            'class="details-image" ' +
-            'src="' +
-            escapeHtml(
-              ad.image_url
-            ) +
-            '" ' +
-            'alt="تصویر اکانت" ' +
-            'onerror="this.style.display=\'none\'">'
-          : ""
-      ) +
 
-      '<div class="details-title">' +
-      escapeHtml(
-        ad.account_name ||
-        "اکانت کالاف"
-      ) +
-      '</div>' +
+    if (
+      !data ||
+      !Array.isArray(
+        data.ads
+      )
+    ) {
 
-      '<div class="details-code">' +
-      'کد آگهی: #' +
-      escapeHtml(
-        ad.ad_code || "-"
-      ) +
-      '</div>' +
+      throw new Error(
+        "ساختار ads.json صحیح نیست."
+      );
 
-      '<div class="details-price">' +
-      '💰 ' +
-      escapeHtml(
-        ad.price ||
-        "توافقی"
-      ) +
-      ' تومان' +
-      '</div>' +
+    }
 
-      '<div class="details-grid">' +
 
-      detailItem(
-        "🆔 UID",
-        ad.uid
-      ) +
+    var now =
+      Math.floor(
+        Date.now() / 1000
+      );
 
-      detailItem(
-        "👤 اسم اکانت",
-        ad.account_name
-      ) +
 
-      detailItem(
-        "⭐ لول",
-        ad.level
-      ) +
+    var activeAds =
+      data.ads.filter(
+        function (ad) {
 
-      detailItem(
-        "🏆 رنک",
-        ad.rank
-      ) +
+          return (
 
-      detailItem(
-        "🔥 گان لجند",
-        ad.legendary_count
-      ) +
+            !ad.expires_at ||
 
-      detailItem(
-        "🔮 گان میتیک",
-        ad.mythic_count
-      ) +
+            Number(
+              ad.expires_at
+            ) > now
 
-      detailItem(
-        "🔐 نوع سیو",
-        ad.save_type
-      ) +
+          );
 
-      detailItem(
-        "💰 قیمت",
-        ad.price + " تومان"
-      ) +
+        }
+      );
 
-      '</div>' +
 
-      '<div class="description">' +
+    renderAds(
+      activeAds
+    );
 
-      '<b>📝 توضیحات</b>' +
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "ADS ERROR:",
+      error
+    );
+
+
+    adsList.innerHTML =
+
+      '<div class="error-box">' +
+
+      '❌ دریافت آگهی‌ها ناموفق بود.' +
+
+      '<br><br>' +
+
+      'ممکن است اینترنت یا فایل ads.json ' +
+
+      'موقتاً در دسترس نباشد.' +
+
+      '<br><br>' +
+
+      '<button ' +
+
+      'class="refresh-btn" ' +
+
+      'onclick="loadAds()">' +
+
+      '🔄 تلاش دوباره' +
+
+      '</button>' +
+
+      '</div>';
+
+  }
+
+}
+
+
+/* =====================================================
+   RENDER ADS
+===================================================== */
+
+function renderAds(
+  ads
+) {
+
+  adsList.innerHTML =
+    "";
+
+
+  if (!ads.length) {
+
+    adsList.innerHTML =
+
+      '<div class="empty">' +
+
+      '📭 در حال حاضر آگهی فعالی وجود ندارد.' +
 
       '<br>' +
 
-      escapeHtml(
-        ad.description ||
-        "توضیحی ثبت نشده است."
-      ) +
+      'بعداً دوباره سر بزنید. ❤️' +
 
-      '</div>' +
+      '</div>';
 
-      '<div class="seller-box">' +
-
-      '👤 فروشنده: @' +
-
-      escapeHtml(
-        seller ||
-        "نامشخص"
-      ) +
-
-      '</div>' +
-
-      '<br>' +
-
-      sellerButton;
+    return;
 
   }
 
 
-  /* =====================================
-     ساخت آیتم جزئیات
-  ===================================== */
+  ads.forEach(
+    function (ad) {
 
-  function detailItem(
-    title,
-    value
-  ) {
+      var card =
+        document.createElement(
+          "div"
+        );
 
-    return (
 
-      '<div class="detail-item">' +
+      card.className =
+        "ad-card";
 
-      '<b>' +
-      escapeHtml(title) +
-      '</b>' +
 
-      escapeHtml(
-        value == null ||
-        value === ""
-          ? "-"
-          : String(value)
+      var image =
+        ad.image_url
+          ? ad.image_url
+          : "";
+
+
+      card.innerHTML =
+
+        '<img ' +
+
+        'class="ad-image" ' +
+
+        'src="' +
+
+        escapeHtml(
+          image
+        ) +
+
+        '" ' +
+
+        'alt="تصویر اکانت" ' +
+
+        'onerror="this.style.display=\'none\'">' +
+
+
+        '<div class="ad-content">' +
+
+
+        '<div class="ad-top">' +
+
+
+        '<div class="ad-name">' +
+
+        escapeHtml(
+          ad.account_name ||
+          "اکانت کالاف"
+        ) +
+
+        '</div>' +
+
+
+        '<div class="ad-code">' +
+
+        'کد #' +
+
+        escapeHtml(
+          ad.ad_code ||
+          "-"
+        ) +
+
+        '</div>' +
+
+
+        '</div>' +
+
+
+        '<div class="price">' +
+
+        '💰 ' +
+
+        escapeHtml(
+          ad.price ||
+          "توافقی"
+        ) +
+
+        ' تومان' +
+
+        '</div>' +
+
+
+        '<div class="mini-info">' +
+
+
+        '<div class="info-box">' +
+
+        '<span>⭐ لول</span>' +
+
+        '<br>' +
+
+        escapeHtml(
+          ad.level ||
+          "-"
+        ) +
+
+        '</div>' +
+
+
+        '<div class="info-box">' +
+
+        '<span>🏆 رنک</span>' +
+
+        '<br>' +
+
+        escapeHtml(
+          ad.rank ||
+          "-"
+        ) +
+
+        '</div>' +
+
+
+        '<div class="info-box">' +
+
+        '<span>🔥 لجند</span>' +
+
+        '<br>' +
+
+        escapeHtml(
+          ad.legendary_count ||
+          "0"
+        ) +
+
+        '</div>' +
+
+
+        '<div class="info-box">' +
+
+        '<span>🔮 میتیک</span>' +
+
+        '<br>' +
+
+        escapeHtml(
+          ad.mythic_count ||
+          "0"
+        ) +
+
+        '</div>' +
+
+
+        '</div>' +
+
+        '</div>';
+
+
+      card.onclick =
+        function () {
+
+          showDetails(
+            ad
+          );
+
+        };
+
+
+      adsList.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+function showDetails(
+  ad
+) {
+
+  buyScreen.style.display =
+    "none";
+
+  detailsScreen.style.display =
+    "block";
+
+
+  var seller =
+    String(
+      ad.seller_username ||
+      ""
+    ).replace(
+      /^@/,
+      ""
+    );
+
+
+  var sellerButton =
+    "";
+
+
+  if (seller) {
+
+    sellerButton =
+
+      '<button ' +
+
+      'class="btn cyan" ' +
+
+      'type="button" ' +
+
+      'onclick="contactSeller(\'' +
+
+      escapeJs(
+        seller
       ) +
 
-      '</div>'
+      '\')">' +
 
+      '💬 تماس با فروشنده' +
+
+      '</button>';
+
+  }
+
+
+  detailsContent.innerHTML =
+
+
+    (
+
+      ad.image_url
+
+        ? '<img ' +
+
+          'class="details-image" ' +
+
+          'src="' +
+
+          escapeHtml(
+            ad.image_url
+          ) +
+
+          '" ' +
+
+          'alt="تصویر اکانت" ' +
+
+          'onerror="this.style.display=\'none\'">'
+
+        : ""
+
+    ) +
+
+
+    '<div class="details-title">' +
+
+    escapeHtml(
+      ad.account_name ||
+      "اکانت کالاف"
+    ) +
+
+    '</div>' +
+
+
+    '<div class="details-code">' +
+
+    'کد آگهی: #' +
+
+    escapeHtml(
+      ad.ad_code ||
+      "-"
+    ) +
+
+    '</div>' +
+
+
+    '<div class="details-price">' +
+
+    '💰 ' +
+
+    escapeHtml(
+      ad.price ||
+      "توافقی"
+    ) +
+
+    ' تومان' +
+
+    '</div>' +
+
+
+    '<div class="details-grid">' +
+
+
+    detailItem(
+      "🆔 UID",
+      ad.uid
+    ) +
+
+
+    detailItem(
+      "👤 اسم اکانت",
+      ad.account_name
+    ) +
+
+
+    detailItem(
+      "⭐ لول",
+      ad.level
+    ) +
+
+
+    detailItem(
+      "🏆 رنک",
+      ad.rank
+    ) +
+
+
+    detailItem(
+      "🔥 گان لجند",
+      ad.legendary_count
+    ) +
+
+
+    detailItem(
+      "🔮 گان میتیک",
+      ad.mythic_count
+    ) +
+
+
+    detailItem(
+      "🔐 نوع سیو",
+      ad.save_type
+    ) +
+
+
+    detailItem(
+      "💰 قیمت",
+      ad.price +
+      " تومان"
+    ) +
+
+
+    '</div>' +
+
+
+    '<div class="description">' +
+
+    '<b>📝 توضیحات</b>' +
+
+    '<br>' +
+
+    escapeHtml(
+      ad.description ||
+      "توضیحی ثبت نشده است."
+    ) +
+
+    '</div>' +
+
+
+    '<div class="seller-box">' +
+
+    '👤 فروشنده: @' +
+
+    escapeHtml(
+      seller ||
+      "نامشخص"
+    ) +
+
+    '</div>' +
+
+
+    '<br>' +
+
+
+    sellerButton;
+
+}
+
+
+/* =====================================================
+   DETAIL ITEM
+===================================================== */
+
+function detailItem(
+  title,
+  value
+) {
+
+  return (
+
+    '<div class="detail-item">' +
+
+    '<b>' +
+
+    escapeHtml(
+      title
+    ) +
+
+    '</b>' +
+
+    escapeHtml(
+
+      value == null ||
+      value === ""
+
+        ? "-"
+
+        : String(
+            value
+          )
+
+    ) +
+
+    '</div>'
+
+  );
+
+}
+
+
+/* =====================================================
+   CONTACT SELLER
+===================================================== */
+
+function contactSeller(
+  username
+) {
+
+  if (!username) {
+
+    return;
+
+  }
+
+
+  var url =
+    "https://t.me/" +
+    username;
+
+
+  if (
+    tg &&
+    tg.openTelegramLink
+  ) {
+
+    tg.openTelegramLink(
+      url
     );
 
   }
 
+  else {
 
-  /* =====================================
-     تماس با فروشنده
-  ===================================== */
+    window.open(
+      url,
+      "_blank"
+    );
 
-  function contactSeller(username) {
+  }
 
-    if (!username) {
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(
+  value
+) {
+
+  return String(
+
+    value == null
+      ? ""
+      : value
+
+  )
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE JS
+===================================================== */
+
+function escapeJs(
+  value
+) {
+
+  return String(
+    value || ""
+  )
+
+    .replace(
+      /\\/g,
+      "\\\\"
+    )
+
+    .replace(
+      /'/g,
+      "\\'"
+    )
+
+    .replace(
+      /"/g,
+      '\\"'
+    );
+
+}
+
+
+/* =====================================================
+   RANK SELECTION
+===================================================== */
+
+document
+  .querySelectorAll(
+    "#rankChoices .choice"
+  )
+  .forEach(
+    function (button) {
+
+      button.onclick =
+        function () {
+
+          document
+            .querySelectorAll(
+              "#rankChoices .choice"
+            )
+            .forEach(
+              function (b) {
+
+                b.classList.remove(
+                  "selected"
+                );
+
+              }
+            );
+
+
+          button.classList.add(
+            "selected"
+          );
+
+
+          document
+            .getElementById(
+              "rank"
+            )
+            .value =
+            button.dataset.value;
+
+        };
+
+    }
+  );
+
+
+/* =====================================================
+   SAVE TYPE SELECTION
+===================================================== */
+
+document
+  .querySelectorAll(
+    "#saveChoices .choice"
+  )
+  .forEach(
+    function (button) {
+
+      button.onclick =
+        function () {
+
+          document
+            .querySelectorAll(
+              "#saveChoices .choice"
+            )
+            .forEach(
+              function (b) {
+
+                b.classList.remove(
+                  "selected"
+                );
+
+              }
+            );
+
+
+          button.classList.add(
+            "selected"
+          );
+
+
+          document
+            .getElementById(
+              "saveType"
+            )
+            .value =
+            button.dataset.value;
+
+        };
+
+    }
+  );
+
+
+/* =====================================================
+   IMAGE SELECTION
+===================================================== */
+
+document
+  .getElementById("file")
+  .onchange =
+  function (e) {
+
+    files =
+      Array.prototype
+        .slice
+        .call(
+          e.target.files,
+          0,
+          5
+        );
+
+
+    var thumbs =
+      document.getElementById(
+        "thumbs"
+      );
+
+
+    thumbs.innerHTML =
+      "";
+
+
+    files.forEach(
+      function (file) {
+
+        var img =
+          document.createElement(
+            "img"
+          );
+
+
+        img.src =
+          URL.createObjectURL(
+            file
+          );
+
+
+        img.alt =
+          "تصویر اکانت";
+
+
+        thumbs.appendChild(
+          img
+        );
+
+      }
+    );
+
+  };
+
+
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
+
+document
+  .getElementById("f")
+  .onsubmit =
+  function (e) {
+
+    e.preventDefault();
+
+
+    err.className =
+      "err";
+
+
+    err.textContent =
+      "";
+
+
+    var uid =
+      document
+        .getElementById("uid")
+        .value
+        .trim();
+
+
+    var name =
+      document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    var level =
+      document
+        .getElementById("level")
+        .value
+        .trim();
+
+
+    var rank =
+      document
+        .getElementById("rank")
+        .value;
+
+
+    var legendary =
+      document
+        .getElementById("leg")
+        .value
+        .trim();
+
+
+    var mythic =
+      document
+        .getElementById("myth")
+        .value
+        .trim();
+
+
+    var price =
+      document
+        .getElementById("price")
+        .value
+        .trim();
+
+
+    var saveType =
+      document
+        .getElementById("saveType")
+        .value;
+
+
+    var seller =
+      document
+        .getElementById("seller")
+        .value
+        .trim();
+
+
+    var description =
+      document
+        .getElementById("description")
+        .value
+        .trim();
+
+
+    /* =========================
+       REQUIRED
+    ========================= */
+
+    if (
+
+      !uid ||
+      !name ||
+      !level ||
+      !rank ||
+      !legendary ||
+      !mythic ||
+      !price ||
+      !saveType ||
+      !seller
+
+    ) {
+
+      err.textContent =
+        "⚠️ لطفاً تمام اطلاعات را کامل کنید.";
 
       return;
 
     }
 
 
-    var url =
-      "https://t.me/" +
-      username;
-
+    /* =========================
+       UID
+    ========================= */
 
     if (
-      tg &&
-      tg.openTelegramLink
+      !/^\d+$/.test(
+        uid
+      )
     ) {
 
-      tg.openTelegramLink(
-        url
-      );
+      err.textContent =
+        "❌ UID باید فقط عدد باشد.";
 
-    } else {
-
-      window.open(
-        url,
-        "_blank"
-      );
+      return;
 
     }
 
-  }
 
+    /* =========================
+       LEVEL
+    ========================= */
 
-  /* =====================================
-     جلوگیری از HTML Injection
-  ===================================== */
-
-  function escapeHtml(value) {
-
-    return String(
-      value == null
-        ? ""
-        : value
-    )
-      .replace(
-        /&/g,
-        "&amp;"
+    if (
+      !/^\d+$/.test(
+        level
       )
-      .replace(
-        /</g,
-        "&lt;"
-      )
-      .replace(
-        />/g,
-        "&gt;"
-      )
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-      .replace(
-        /'/g,
-        "&#039;"
-      );
-
-  }
-
-
-  /* =====================================
-     امن کردن username برای onclick
-  ===================================== */
-
-  function escapeJs(value) {
-
-    return String(
-      value || ""
-    )
-      .replace(
-        /\\/g,
-        "\\\\"
-      )
-      .replace(
-        /'/g,
-        "\\'"
-      )
-      .replace(
-        /"/g,
-        '\\"'
-      );
-
-  }
-
-
-  /* =====================================
-     انتخاب رنک
-  ===================================== */
-
-  document
-    .querySelectorAll(
-      "#rankChoices .choice"
-    )
-    .forEach(
-      function (button) {
-
-        button.onclick =
-          function () {
-
-            document
-              .querySelectorAll(
-                "#rankChoices .choice"
-              )
-              .forEach(
-                function (b) {
-
-                  b.classList.remove(
-                    "selected"
-                  );
-
-                }
-              );
-
-
-            button.classList.add(
-              "selected"
-            );
-
-
-            document
-              .getElementById(
-                "rank"
-              )
-              .value =
-              button.dataset.value;
-
-          };
-
-      }
-    );
-
-
-  /* =====================================
-     انتخاب نوع سیو
-  ===================================== */
-
-  document
-    .querySelectorAll(
-      "#saveChoices .choice"
-    )
-    .forEach(
-      function (button) {
-
-        button.onclick =
-          function () {
-
-            document
-              .querySelectorAll(
-                "#saveChoices .choice"
-              )
-              .forEach(
-                function (b) {
-
-                  b.classList.remove(
-                    "selected"
-                  );
-
-                }
-              );
-
-
-            button.classList.add(
-              "selected"
-            );
-
-
-            document
-              .getElementById(
-                "saveType"
-              )
-              .value =
-              button.dataset.value;
-
-          };
-
-      }
-    );
-
-
-  /* =====================================
-     انتخاب عکس
-  ===================================== */
-
-  document
-    .getElementById("file")
-    .onchange =
-    function (e) {
-
-      files =
-        Array.prototype
-          .slice
-          .call(
-            e.target.files,
-            0,
-            5
-          );
-
-
-      var thumbs =
-        document.getElementById(
-          "thumbs"
-        );
-
-
-      thumbs.innerHTML =
-        "";
-
-
-      files.forEach(
-        function (file) {
-
-          var img =
-            document.createElement(
-              "img"
-            );
-
-
-          img.src =
-            URL.createObjectURL(
-              file
-            );
-
-
-          img.alt =
-            "تصویر اکانت";
-
-
-          thumbs.appendChild(
-            img
-          );
-
-        }
-      );
-
-    };
-
-
-  /* =====================================
-     ارسال فرم
-  ===================================== */
-
-  document
-    .getElementById("f")
-    .onsubmit =
-    function (e) {
-
-      e.preventDefault();
-
-
-      err.className =
-        "err";
+    ) {
 
       err.textContent =
-        "";
+        "❌ لول اکانت باید عدد باشد.";
 
+      return;
 
-      var uid =
-        document
-          .getElementById("uid")
-          .value
-          .trim();
+    }
 
 
-      var name =
-        document
-          .getElementById("name")
-          .value
-          .trim();
+    /* =========================
+       LEGENDARY
+    ========================= */
 
+    if (
+      !/^\d+$/.test(
+        legendary
+      )
+    ) {
 
-      var level =
-        document
-          .getElementById("level")
-          .value
-          .trim();
+      err.textContent =
+        "❌ تعداد گان لجند باید عدد باشد.";
 
+      return;
 
-      var rank =
-        document
-          .getElementById("rank")
-          .value;
+    }
 
 
-      var legendary =
-        document
-          .getElementById("leg")
-          .value
-          .trim();
+    /* =========================
+       MYTHIC
+    ========================= */
 
+    if (
+      !/^\d+$/.test(
+        mythic
+      )
+    ) {
 
-      var mythic =
-        document
-          .getElementById("myth")
-          .value
-          .trim();
+      err.textContent =
+        "❌ تعداد گان میتیک باید عدد باشد.";
 
+      return;
 
-      var price =
-        document
-          .getElementById("price")
-          .value
-          .trim();
+    }
 
 
-      var saveType =
-        document
-          .getElementById("saveType")
-          .value;
+    /* =========================
+       IMAGE
+    ========================= */
 
+    if (!files.length) {
 
-      var seller =
-        document
-          .getElementById("seller")
-          .value
-          .trim();
+      err.textContent =
+        "📸 حداقل یک عکس اکانت انتخاب کنید.";
 
+      return;
 
-      var description =
-        document
-          .getElementById("description")
-          .value
-          .trim();
+    }
 
 
-      if (
-        !uid ||
-        !name ||
-        !level ||
-        !rank ||
-        !legendary ||
-        !mythic ||
-        !price ||
-        !saveType ||
-        !seller
-      ) {
+    /* =========================
+       MESSAGE
+    ========================= */
 
-        err.textContent =
-          "⚠️ لطفاً تمام اطلاعات را کامل کنید.";
+    var text =
 
-        return;
+      "📋 آگهی فروش اکانت کالاف\n" +
 
-      }
+      "━━━━━━━━━━━━━━\n\n" +
 
+      "🆔 UID: " +
+      uid +
+      "\n" +
 
-      if (
-        !/^\d+$/.test(uid)
-      ) {
+      "👤 اسم اکانت: " +
+      name +
+      "\n" +
 
-        err.textContent =
-          "❌ UID باید فقط عدد باشد.";
+      "⭐ لول اکانت: " +
+      level +
+      "\n" +
 
-        return;
+      "🏆 رنک: " +
+      rank +
+      "\n" +
 
-      }
+      "🔥 تعداد گان لجند: " +
+      legendary +
+      "\n" +
 
+      "🔮 تعداد گان میتیک: " +
+      mythic +
+      "\n" +
 
-      if (
-        !/^\d+$/.test(level)
-      ) {
+      "💰 قیمت: " +
+      price +
+      " تومان\n" +
 
-        err.textContent =
-          "❌ لول اکانت باید عدد باشد.";
+      "🔐 نوع سیو: " +
+      saveType +
+      "\n" +
 
-        return;
+      "👤 آیدی فروشنده: " +
+      seller +
+      "\n";
 
-      }
 
-
-      if (
-        !/^\d+$/.test(legendary)
-      ) {
-
-        err.textContent =
-          "❌ تعداد گان لجند باید عدد باشد.";
-
-        return;
-
-      }
-
-
-      if (
-        !/^\d+$/.test(mythic)
-      ) {
-
-        err.textContent =
-          "❌ تعداد گان میتیک باید عدد باشد.";
-
-        return;
-
-      }
-
-
-      if (!files.length) {
-
-        err.textContent =
-          "📸 حداقل یک عکس اکانت انتخاب کنید.";
-
-        return;
-
-      }
-
-
-      var text =
-
-        "📋 آگهی فروش اکانت کالاف\n" +
-
-        "━━━━━━━━━━━━━━\n\n" +
-
-        "🆔 UID: " +
-        uid +
-        "\n" +
-
-        "👤 اسم اکانت: " +
-        name +
-        "\n" +
-
-        "⭐ لول اکانت: " +
-        level +
-        "\n" +
-
-        "🏆 رنک: " +
-        rank +
-        "\n" +
-
-        "🔥 تعداد گان لجند: " +
-        legendary +
-        "\n" +
-
-        "🔮 تعداد گان میتیک: " +
-        mythic +
-        "\n" +
-
-        "💰 قیمت: " +
-        price +
-        " تومان\n" +
-
-        "🔐 نوع سیو: " +
-        saveType +
-        "\n" +
-
-        "👤 آیدی فروشنده: " +
-        seller +
-        "\n";
-
-
-      if (description) {
-
-        text +=
-
-          "\n📝 توضیحات:\n" +
-
-          description +
-          "\n";
-
-      }
-
+    if (description) {
 
       text +=
 
-        "\n━━━━━━━━━━━━━━\n" +
+        "\n📝 توضیحات:\n" +
 
-        "📸 تعداد عکس: " +
-        files.length +
-        "\n\n" +
+        description +
+        "\n";
 
-        "⚠️ لطفاً عکس‌های اکانت را نیز در همین چت ارسال کنید.";
+    }
 
 
-      var adminUrl =
+    text +=
 
-        "https://t.me/" +
+      "\n━━━━━━━━━━━━━━\n" +
 
-        ADMIN_USERNAME +
+      "📸 تعداد عکس: " +
 
-        "?text=" +
+      files.length +
 
-        encodeURIComponent(
+      "\n\n" +
+
+      "⚠️ لطفاً عکس‌های اکانت را نیز در همین چت ارسال کنید.";
+
+
+    /* =========================
+       OPEN TELEGRAM
+    ========================= */
+
+    err.className =
+      "err success";
+
+
+    err.textContent =
+      "✅ آگهی آماده شد؛ در حال باز کردن تلگرام...";
+
+
+    setTimeout(
+      function () {
+
+        openTelegramMessage(
           text
         );
 
+      },
+      300
+    );
 
-      err.className =
-        "err success";
-
-
-      err.textContent =
-        "✅ آگهی آماده شد؛ در حال باز کردن تلگرام...";
-
-
-      setTimeout(
-        function () {
-
-          if (
-            tg &&
-            tg.openTelegramLink
-          ) {
-
-            tg.openTelegramLink(
-              adminUrl
-            );
-
-          } else {
-
-            window.open(
-              adminUrl,
-              "_blank"
-            );
-
-          }
-
-        },
-        300
-      );
-
-    };
-
+  };
 
 </script>
 
 </body>
-</html>
+
+  </html>
