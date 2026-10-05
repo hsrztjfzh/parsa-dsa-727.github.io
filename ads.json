@@ -1,5 +1,5 @@
 {
-  "updated_at": 1791192367,
+  "updated_at": 1791192379,
   "ads": [
     {
       "id": 4,
@@ -17,23 +17,6 @@
       "created_at": 1791192163,
       "expires_at": 1791451363,
       "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/27339.jpg"
-    },
-    {
-      "id": 1,
-      "ad_code": "46324",
-      "uid": "3445454464335",
-      "account_name": "5555645",
-      "level": "464",
-      "price": "6666",
-      "legendary_count": "5",
-      "mythic_count": "6",
-      "rank": "Elite IV",
-      "save_type": "اکتیویژن",
-      "description": "knhvn",
-      "seller_username": "Parsa_xxxxx",
-      "created_at": 1791133682,
-      "expires_at": 1791392882,
-      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/46324.jpg"
     }
   ]
 }
