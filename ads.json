@@ -1,22 +1,4 @@
 {
-  "updated_at": 1791218517,
-  "ads": [
-    {
-      "id": 1,
-      "ad_code": "23279",
-      "uid": "8282727722",
-      "account_name": "Osjs",
-      "level": "9282",
-      "price": "9097",
-      "legendary_count": "8",
-      "mythic_count": "8",
-      "rank": "Legendary",
-      "save_type": "اکتیویژن",
-      "description": "نداره",
-      "seller_username": "Parsa_xxxxx",
-      "created_at": 1791218487,
-      "expires_at": 1795106487,
-      "image_url": "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads/23279.jpg"
-    }
-  ]
+  "updated_at": 1791290148,
+  "ads": []
 }
