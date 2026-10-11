@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>VGR STORE | Ø®Ø±ÛŒØ¯ Ùˆ ÙØ±ÙˆØ´ Ø§Ú©Ø§Ù†Øª</title>
+<title>VGR STORE | خرید و فروش اکانت</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -77,59 +77,59 @@ textarea{min-height:90px;resize:vertical;line-height:1.8}
 <body>
 <div class="container">
   <div id="homeScreen">
-    <header><div class="logo">ðŸŽ®</div><h1>Ø®Ø±ÛŒØ¯ Ùˆ ÙØ±ÙˆØ´ Ø§Ú©Ø§Ù†Øª Ú©Ø§Ù„Ø§Ù</h1><p>Ø¢Ú¯Ù‡ÛŒ Ø§Ú©Ø§Ù†ØªØª Ø±Ùˆ Ø«Ø¨Øª Ú©Ù† ÛŒØ§ Ø¨Ø±Ø§ÛŒ Ø®Ø±ÛŒØ¯ Ø§Ú©Ø§Ù†Øª Ùˆ CP Ø§Ù‚Ø¯Ø§Ù… Ú©Ù†.<br>Ù†Ø³Ø®Ù‡ Ù¾Ø´ØªÛŒØ¨Ø§Ù† VGR STORE</p></header>
+    <header><div class="logo">🎮</div><h1>خرید و فروش اکانت کالاف</h1><p>آگهی اکانتت رو ثبت کن یا برای خرید اکانت و CP اقدام کن.<br>نسخه پشتیبان VGR STORE</p></header>
     <main class="card">
       <div class="buttons">
-        <button class="btn" id="open" type="button">ðŸ“‹ Ø«Ø¨Øª Ø¢Ú¯Ù‡ÛŒ</button>
-        <button class="btn cyan" id="buy" type="button">ðŸ›’ Ø®Ø±ÛŒØ¯ Ø§Ú©Ø§Ù†Øª</button>
-        <button class="btn" id="cp" type="button">ðŸ’³ Ø®Ø±ÛŒØ¯ CP</button>
+        <button class="btn" id="open" type="button">📋 ثبت آگهی</button>
+        <button class="btn cyan" id="buy" type="button">🛒 خرید اکانت</button>
+        <button class="btn" id="cp" type="button">💳 خرید CP</button>
       </div>
-      <p class="note">âš ï¸ Ø§ÛŒÙ† Ù…ÛŒÙ†ÛŒâ€ŒØ§Ù¾ Ø²Ù…Ø§Ù†ÛŒ Ø§Ø³ØªÙØ§Ø¯Ù‡ Ù…ÛŒâ€ŒØ´ÙˆØ¯ Ú©Ù‡ Ø±Ø¨Ø§Øª Ø¯Ø± Ø¯Ø³ØªØ±Ø³ Ù†Ø¨Ø§Ø´Ø¯.<br>Ø¨Ø¹Ø¯ Ø§Ø² Ø«Ø¨Øª Ø¢Ú¯Ù‡ÛŒØŒ Ø§Ø·Ù„Ø§Ø¹Ø§Øª Ø¨Ø±Ø§ÛŒ Ø§Ø¯Ù…ÛŒÙ† Ø§Ø±Ø³Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯.</p>
+      <p class="note">⚠️ این مینی‌اپ زمانی استفاده می‌شود که ربات در دسترس نباشد.<br>بعد از ثبت آگهی، اطلاعات برای ادمین ارسال می‌شود.</p>
     </main>
   </div>
   <div id="buyScreen">
-    <div class="buy-header"><div class="buy-title">ðŸ›’ Ø¢Ú¯Ù‡ÛŒâ€ŒÙ‡Ø§ÛŒ ÙØ±ÙˆØ´</div><button class="refresh-btn" id="refreshAds" type="button">ðŸ”„ Ø¨Ø±ÙˆØ²Ø±Ø³Ø§Ù†ÛŒ</button></div>
-    <div class="card"><div id="adsList" class="ads-list"><div class="loading">â³ Ø¯Ø± Ø­Ø§Ù„ Ø¯Ø±ÛŒØ§ÙØª Ø¢Ú¯Ù‡ÛŒâ€ŒÙ‡Ø§...</div></div></div>
-    <button class="btn close" id="backHome" type="button">â†©ï¸ Ø¨Ø§Ø²Ú¯Ø´Øª</button>
+    <div class="buy-header"><div class="buy-title">🛒 آگهی‌های فروش</div><button class="refresh-btn" id="refreshAds" type="button">🔄 بروزرسانی</button></div>
+    <div class="card"><div id="adsList" class="ads-list"><div class="loading">⏳ در حال دریافت آگهی‌ها...</div></div></div>
+    <button class="btn close" id="backHome" type="button">↩️ بازگشت</button>
   </div>
   <div id="cpScreen">
-    <div class="buy-header"><div class="buy-title">ðŸ’³ Ø®Ø±ÛŒØ¯ CP Ú©Ø§Ù„Ø§Ù Ø¯ÛŒÙˆØªÛŒ Ù…ÙˆØ¨Ø§ÛŒÙ„</div></div>
-    <div class="card"><div class="cp-grid" id="cpGrid"></div><div class="cp-note">Ø¨Ø±Ø§ÛŒ Ø®Ø±ÛŒØ¯ CP Ø¨ÛŒØ´ØªØ± Ø¨Ù‡ Ø§Ø¯Ù…ÛŒÙ† Ù¾ÛŒØ§Ù… Ø¯Ù‡ÛŒØ¯<button class="btn cyan" id="largeCp" type="button" style="margin-top:11px">ðŸ’¬ Ø§Ø±Ø³Ø§Ù„ Ù¾ÛŒØ§Ù… Ø¨Ù‡ Ø§Ø¯Ù…ÛŒÙ†</button></div></div>
-    <button class="btn close" id="backHomeCp" type="button">â†©ï¸ Ø¨Ø§Ø²Ú¯Ø´Øª</button>
+    <div class="buy-header"><div class="buy-title">💳 خرید CP کالاف دیوتی موبایل</div></div>
+    <div class="card"><div class="cp-grid" id="cpGrid"></div><div class="cp-note">برای خرید CP بیشتر به ادمین پیام دهید<button class="btn cyan" id="largeCp" type="button" style="margin-top:11px">💬 ارسال پیام به ادمین</button></div></div>
+    <button class="btn close" id="backHomeCp" type="button">↩️ بازگشت</button>
   </div>
-  <div id="detailsScreen"><button class="btn back-btn" id="backAds" type="button">â†©ï¸ Ø¨Ø§Ø²Ú¯Ø´Øª Ø¨Ù‡ Ø¢Ú¯Ù‡ÛŒâ€ŒÙ‡Ø§</button><div class="card"><div id="detailsContent"></div></div></div>
-  <div class="footer">VGR STORE â€¢ Call of Duty Mobile</div>
+  <div id="detailsScreen"><button class="btn back-btn" id="backAds" type="button">↩️ بازگشت به آگهی‌ها</button><div class="card"><div id="detailsContent"></div></div></div>
+  <div class="footer">VGR STORE • Call of Duty Mobile</div>
 </div>
 
 <dialog id="dlg"><div class="dialog-inner">
-  <div class="dialog-title"><h2>ðŸ“‹ Ø«Ø¨Øª Ø¢Ú¯Ù‡ÛŒ Ø§Ú©Ø§Ù†Øª</h2><p>Ø§Ø·Ù„Ø§Ø¹Ø§Øª Ø§Ú©Ø§Ù†Øª Ø±Ø§ Ú©Ø§Ù…Ù„ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯</p></div>
+  <div class="dialog-title"><h2>📋 ثبت آگهی اکانت</h2><p>اطلاعات اکانت را کامل وارد کنید</p></div>
   <form id="f" novalidate>
-    <label for="uid">ðŸ†” UID Ø§Ú©Ø§Ù†Øª</label><input id="uid" inputmode="numeric" placeholder="Ù…Ø«Ù„Ø§Ù‹ 123456789">
-    <label for="name">ðŸ‘¤ Ø§Ø³Ù… Ø§Ú©Ø§Ù†Øª</label><input id="name" maxlength="40" placeholder="Ù†Ø§Ù… Ø§Ú©Ø§Ù†Øª">
-    <label for="level">â­ Ù„ÙˆÙ„ Ø§Ú©Ø§Ù†Øª</label><input id="level" inputmode="numeric" placeholder="Ù…Ø«Ù„Ø§Ù‹ 350">
-    <div class="section-title">ðŸ† Ø±Ù†Ú© Ø§Ú©Ø§Ù†Øª</div>
+    <label for="uid">🆔 UID اکانت</label><input id="uid" inputmode="numeric" placeholder="مثلاً 123456789">
+    <label for="name">👤 اسم اکانت</label><input id="name" maxlength="40" placeholder="نام اکانت">
+    <label for="level">⭐ لول اکانت</label><input id="level" inputmode="numeric" placeholder="مثلاً 350">
+    <div class="section-title">🏆 رنک اکانت</div>
     <div class="choices" id="rankChoices">
       <button type="button" class="choice" data-value="Rookie">Rookie</button><button type="button" class="choice" data-value="Veteran">Veteran</button><button type="button" class="choice" data-value="Elite">Elite</button><button type="button" class="choice" data-value="Pro">Pro</button><button type="button" class="choice" data-value="Master">Master</button><button type="button" class="choice" data-value="Grandmaster">Grandmaster</button><button type="button" class="choice" data-value="Legendary">Legendary</button>
     </div><input id="rank" type="hidden">
-    <label for="leg">ðŸ”¥ ØªØ¹Ø¯Ø§Ø¯ Ú¯Ø§Ù† Ù„Ø¬Ù†Ø¯</label><input id="leg" inputmode="numeric" placeholder="Ù…Ø«Ù„Ø§Ù‹ 8">
-    <label for="myth">ðŸ”® ØªØ¹Ø¯Ø§Ø¯ Ú¯Ø§Ù† Ù…ÛŒØªÛŒÚ©</label><input id="myth" inputmode="numeric" placeholder="Ù…Ø«Ù„Ø§Ù‹ 3">
-    <label for="price">ðŸ’° Ù‚ÛŒÙ…Øª Ø§Ú©Ø§Ù†Øª (ØªÙˆÙ…Ø§Ù†)</label><input id="price" inputmode="numeric" placeholder="Ù…Ø«Ù„Ø§Ù‹ 15000000">
-    <div class="section-title">ðŸ” Ù†ÙˆØ¹ Ø³ÛŒÙˆ Ø§Ú©Ø§Ù†Øª</div>
+    <label for="leg">🔥 تعداد گان لجند</label><input id="leg" inputmode="numeric" placeholder="مثلاً 8">
+    <label for="myth">🔮 تعداد گان میتیک</label><input id="myth" inputmode="numeric" placeholder="مثلاً 3">
+    <label for="price">💰 قیمت اکانت (تومان)</label><input id="price" inputmode="numeric" placeholder="مثلاً 15000000">
+    <div class="section-title">🔐 نوع سیو اکانت</div>
     <div class="choices" id="saveChoices"><button type="button" class="choice" data-value="Activision">Activision</button><button type="button" class="choice" data-value="Google">Google</button><button type="button" class="choice" data-value="Facebook">Facebook</button></div><input id="saveType" type="hidden">
-    <label for="seller">ðŸ‘¤ Ø¢ÛŒØ¯ÛŒ ÙØ±ÙˆØ´Ù†Ø¯Ù‡ (ØªÙ„Ú¯Ø±Ø§Ù…)</label><input id="seller" placeholder="@username">
-    <label for="description">ðŸ“ ØªÙˆØ¶ÛŒØ­Ø§Øª Ø§Ø¶Ø§ÙÙ‡</label><textarea id="description" maxlength="700" placeholder="ØªÙˆØ¶ÛŒØ­Ø§Øª Ù…Ø±Ø¨ÙˆØ· Ø¨Ù‡ Ø§Ú©Ø§Ù†Øª..."></textarea>
-    <div class="upload"><label for="file" class="upload-label">ðŸ“¸ Ø§Ù†ØªØ®Ø§Ø¨ Ø¹Ú©Ø³ Ø§Ú©Ø§Ù†Øª<br>Ø­Ø¯Ø§Ú©Ø«Ø± Ûµ Ø¹Ú©Ø³</label><input id="file" type="file" accept="image/*" multiple></div>
+    <label for="seller">👤 آیدی فروشنده (تلگرام)</label><input id="seller" placeholder="@username">
+    <label for="description">📝 توضیحات اضافه</label><textarea id="description" maxlength="700" placeholder="توضیحات مربوط به اکانت..."></textarea>
+    <div class="upload"><label for="file" class="upload-label">📸 انتخاب عکس اکانت<br>حداکثر ۵ عکس</label><input id="file" type="file" accept="image/*" multiple></div>
     <div class="thumbs" id="thumbs"></div>
-    <div class="warn">ðŸ“¸ Ø¹Ú©Ø³ Ø§Ú©Ø§Ù†Øª Ø±Ø§ Ù‡Ù…Ø±Ø§Ù‡ Ø¢Ú¯Ù‡ÛŒ Ø¯Ø± ØªÙ„Ú¯Ø±Ø§Ù… Ø§Ø±Ø³Ø§Ù„ Ú©Ù†ÛŒØ¯.<br>âš ï¸ Ø¯Ø± ØµÙˆØ±Øª Ù†Ø§Ù‚Øµ Ø¨ÙˆØ¯Ù† Ø§Ø·Ù„Ø§Ø¹Ø§ØªØŒ Ø¢Ú¯Ù‡ÛŒ Ù…Ù…Ú©Ù† Ø§Ø³Øª ØªØ£ÛŒÛŒØ¯ Ù†Ø´ÙˆØ¯.</div>
+    <div class="warn">📸 عکس اکانت را همراه آگهی در تلگرام ارسال کنید.<br>⚠️ در صورت ناقص بودن اطلاعات، آگهی ممکن است تأیید نشود.</div>
     <div class="err" id="err" role="alert"></div>
-    <button class="btn" type="submit">ðŸš€ Ø§Ø±Ø³Ø§Ù„ Ø¢Ú¯Ù‡ÛŒ Ø¨Ù‡ Ø§Ø¯Ù…ÛŒÙ†</button><button class="btn close" type="button" id="close">Ø¨Ø³ØªÙ†</button>
+    <button class="btn" type="submit">🚀 ارسال آگهی به ادمین</button><button class="btn close" type="button" id="close">بستن</button>
   </form>
 </div></dialog>
 
 <script>
-/* ØªÙ†Ø¸ÛŒÙ…Ø§Øª: Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ Ø§Ø¯Ù…ÛŒÙ† Ø±Ø§ Ø¨Ø¯ÙˆÙ† @ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯ */
+/* تنظیمات: نام کاربری ادمین را بدون @ وارد کنید */
 var ADMIN_USERNAME = "Parsa_xxxxx";
-/* Ø§ÛŒÙ† ÙØ§ÛŒÙ„ ÙÙ‚Ø· Ù…Ù†Ø¨Ø¹ ÙØ¹Ù„ÛŒ Ø¢Ú¯Ù‡ÛŒâ€ŒÙ‡Ø§ Ø±Ø§ Ù…ÛŒâ€ŒØ®ÙˆØ§Ù†Ø¯Ø› Ø§Ú¯Ø± Ø±Ø¨Ø§Øª Ø¯ÛŒÚ¯Ø± ads.json Ø±Ø§ Ø¨Ù‡â€ŒØ±ÙˆØ² Ù†Ú©Ù†Ø¯ØŒ Ø¢Ú¯Ù‡ÛŒâ€ŒÙ‡Ø§ÛŒ Ø¬Ø¯ÛŒØ¯ Ø®ÙˆØ¯Ú©Ø§Ø± Ø¸Ø§Ù‡Ø± Ù†Ù…ÛŒâ€ŒØ´ÙˆÙ†Ø¯. */
+/* این فایل فقط منبع فعلی آگهی‌ها را می‌خواند؛ اگر ربات دیگر ads.json را به‌روز نکند، آگهی‌های جدید خودکار ظاهر نمی‌شوند. */
 var ADS_URL = "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads.json";
 var tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
 if (tg) { tg.ready(); tg.expand(); }
@@ -138,7 +138,7 @@ var homeScreen=document.getElementById("homeScreen"), buyScreen=document.getElem
 
 function openTelegramMessage(text, username) {
   var target=String(username || ADMIN_USERNAME).replace(/^@/,"").trim();
-  if(!target){alert("Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ ØªÙ„Ú¯Ø±Ø§Ù… Ø¯Ø± Ø¯Ø³ØªØ±Ø³ Ù†ÛŒØ³Øª.");return;}
+  if(!target){alert("نام کاربری تلگرام در دسترس نیست.");return;}
   var url="https://t.me/"+target+"?text="+encodeURIComponent(text || "");
   if(tg && tg.openTelegramLink) tg.openTelegramLink(url);
   else window.open(url,"_blank","noopener");
@@ -151,57 +151,67 @@ document.getElementById("backHome").onclick=function(){buyScreen.style.display="
 document.getElementById("backHomeCp").onclick=function(){cpScreen.style.display="none";homeScreen.style.display="block";};
 document.getElementById("backAds").onclick=function(){detailsScreen.style.display="none";buyScreen.style.display="block";};
 document.getElementById("refreshAds").onclick=loadAds;
-document.getElementById("largeCp").onclick=function(){openTelegramMessage("Ø¯Ø±ÙˆØ¯ØŒ Ø¨Ø±Ø§ÛŒ Ø®Ø±ÛŒØ¯ CP Ø­Ø¬Ù… Ø¨Ø§Ù„Ø§ Ù¾ÛŒØ§Ù… Ø¯Ø§Ø¯Ù….");};
-[80,160,240,320,400,420,480].forEach(function(n){var box=document.createElement("div");box.className="cp-item";box.innerHTML='<div class="cp-name">'+n+' CP</div><button class="btn" type="button">ðŸ›’ Ø®Ø±ÛŒØ¯</button>';box.querySelector("button").onclick=function(){openTelegramMessage("Ø¯Ø±ÙˆØ¯ØŒ Ø¨Ø±Ø§ÛŒ Ø®Ø±ÛŒØ¯ "+n+" CP Ú©Ø§Ù„Ø§Ù Ø¯ÛŒÙˆØªÛŒ Ù…ÙˆØ¨Ø§ÛŒÙ„ Ù¾ÛŒØ§Ù… Ø¯Ø§Ø¯Ù….");};document.getElementById("cpGrid").appendChild(box);});
+document.getElementById("largeCp").onclick=function(){openTelegramMessage("درود، برای خرید CP حجم بالا پیام دادم.");};
+[80,160,240,320,400,420,480].forEach(function(n){var box=document.createElement("div");box.className="cp-item";box.innerHTML='<div class="cp-name">'+n+' CP</div><button class="btn" type="button">🛒 خرید</button>';box.querySelector("button").onclick=function(){openTelegramMessage("درود، برای خرید "+n+" CP کالاف دیوتی موبایل پیام دادم.");};document.getElementById("cpGrid").appendChild(box);});
 
 async function loadAds(){
-  adsList.innerHTML='<div class="loading">â³ Ø¯Ø± Ø­Ø§Ù„ Ø¯Ø±ÛŒØ§ÙØª Ø¢Ú¯Ù‡ÛŒâ€ŒÙ‡Ø§...</div>';
+  adsList.innerHTML='<div class="loading">⏳ در حال دریافت آگهی‌ها...</div>';
   try{
-    var response=await fetch(ADS_URL+"?t="+Date.now(),{cache:"no-store"});
+    var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var timeoutId = controller ? setTimeout(function(){controller.abort();}, 10000) : null;
+    var response;
+    try {
+      response = await fetch(ADS_URL+"?t="+Date.now(), {
+        cache:"no-store",
+        signal: controller ? controller.signal : undefined
+      });
+    } finally {
+      if (timeoutId) clearTimeout(timeoutId);
+    }
     if(!response.ok)throw new Error("HTTP "+response.status);
     var data=await response.json();
-    if(!data || !Array.isArray(data.ads))throw new Error("Ø³Ø§Ø®ØªØ§Ø± ads.json ØµØ­ÛŒØ­ Ù†ÛŒØ³Øª.");
+    if(!data || !Array.isArray(data.ads))throw new Error("ساختار ads.json صحیح نیست.");
     var now=Math.floor(Date.now()/1000);
     renderAds(data.ads.filter(function(ad){return !ad.expires_at || Number(ad.expires_at)>now;}));
   }catch(e){
     console.error("ADS ERROR:",e);
-    adsList.innerHTML='<div class="error-box">âŒ Ø¯Ø±ÛŒØ§ÙØª Ø¢Ú¯Ù‡ÛŒâ€ŒÙ‡Ø§ Ù†Ø§Ù…ÙˆÙÙ‚ Ø¨ÙˆØ¯.<br><br>Ù…Ù…Ú©Ù† Ø§Ø³Øª Ø§ÛŒÙ†ØªØ±Ù†Øª ÛŒØ§ ÙØ§ÛŒÙ„ ads.json Ø¯Ø± Ø¯Ø³ØªØ±Ø³ Ù†Ø¨Ø§Ø´Ø¯.<br><br><button class="refresh-btn" id="retryAds" type="button">ðŸ”„ ØªÙ„Ø§Ø´ Ø¯ÙˆØ¨Ø§Ø±Ù‡</button></div>';
+    adsList.innerHTML='<div class="error-box">❌ دریافت آگهی‌ها ناموفق بود.<br><br>ممکن است اینترنت یا فایل ads.json در دسترس نباشد.<br><br><button class="refresh-btn" id="retryAds" type="button">🔄 تلاش دوباره</button></div>';
     document.getElementById("retryAds").onclick=loadAds;
   }
 }
 function renderAds(ads){
   adsList.innerHTML="";
-  if(!ads.length){adsList.innerHTML='<div class="empty">ðŸ“­ Ø¯Ø± Ø­Ø§Ù„ Ø­Ø§Ø¶Ø± Ø¢Ú¯Ù‡ÛŒ ÙØ¹Ø§Ù„ÛŒ ÙˆØ¬ÙˆØ¯ Ù†Ø¯Ø§Ø±Ø¯.<br>Ø¨Ø¹Ø¯Ø§Ù‹ Ø¯ÙˆØ¨Ø§Ø±Ù‡ Ø³Ø± Ø¨Ø²Ù†ÛŒØ¯. â¤ï¸</div>';return;}
+  if(!ads.length){adsList.innerHTML='<div class="empty">📭 در حال حاضر آگهی فعالی وجود ندارد.<br>بعداً دوباره سر بزنید. ❤️</div>';return;}
   ads.forEach(function(ad){
     var card=document.createElement("div");card.className="ad-card";
     var image=ad.image_url || "";
-    card.innerHTML='<img class="ad-image" alt="ØªØµÙˆÛŒØ± Ø§Ú©Ø§Ù†Øª"><div class="ad-content"><div class="ad-top"><div class="ad-name"></div><div class="ad-code"></div></div><div class="price"></div><div class="mini-info"></div></div>';
+    card.innerHTML='<img class="ad-image" alt="تصویر اکانت"><div class="ad-content"><div class="ad-top"><div class="ad-name"></div><div class="ad-code"></div></div><div class="price"></div><div class="mini-info"></div></div>';
     var img=card.querySelector("img");if(image){img.src=image;img.onerror=function(){img.style.display="none";};}else{img.style.display="none";}
-    card.querySelector(".ad-name").textContent=ad.account_name || "Ø§Ú©Ø§Ù†Øª Ú©Ø§Ù„Ø§Ù";
-    card.querySelector(".ad-code").textContent="Ú©Ø¯ #"+(ad.ad_code || "-");
-    card.querySelector(".price").textContent="ðŸ’° "+(ad.price || "ØªÙˆØ§ÙÙ‚ÛŒ")+" ØªÙˆÙ…Ø§Ù†";
+    card.querySelector(".ad-name").textContent=ad.account_name || "اکانت کالاف";
+    card.querySelector(".ad-code").textContent="کد #"+(ad.ad_code || "-");
+    card.querySelector(".price").textContent="💰 "+(ad.price || "توافقی")+" تومان";
     var info=card.querySelector(".mini-info");
-    [["â­ Ù„ÙˆÙ„",ad.level],["ðŸ† Ø±Ù†Ú©",ad.rank],["ðŸ”¥ Ù„Ø¬Ù†Ø¯",ad.legendary_count],["ðŸ”® Ù…ÛŒØªÛŒÚ©",ad.mythic_count]].forEach(function(pair){var el=document.createElement("div");el.className="info-box";var span=document.createElement("span");span.textContent=pair[0];el.appendChild(span);el.appendChild(document.createElement("br"));el.appendChild(document.createTextNode(pair[1] == null || pair[1]==="" ? "-" : String(pair[1])));info.appendChild(el);});
+    [["⭐ لول",ad.level],["🏆 رنک",ad.rank],["🔥 لجند",ad.legendary_count],["🔮 میتیک",ad.mythic_count]].forEach(function(pair){var el=document.createElement("div");el.className="info-box";var span=document.createElement("span");span.textContent=pair[0];el.appendChild(span);el.appendChild(document.createElement("br"));el.appendChild(document.createTextNode(pair[1] == null || pair[1]==="" ? "-" : String(pair[1])));info.appendChild(el);});
     card.onclick=function(){showDetails(ad);};adsList.appendChild(card);
   });
 }
 function detailItem(title,value){var el=document.createElement("div");el.className="detail-item";var b=document.createElement("b");b.textContent=title;el.appendChild(b);el.appendChild(document.createTextNode(value==null||value===""?"-":String(value)));return el;}
 function showDetails(ad){
   buyScreen.style.display="none";detailsScreen.style.display="block";detailsContent.innerHTML="";
-  if(ad.image_url){var img=document.createElement("img");img.className="details-image";img.alt="ØªØµÙˆÛŒØ± Ø§Ú©Ø§Ù†Øª";img.src=ad.image_url;img.onerror=function(){img.style.display="none";};detailsContent.appendChild(img);}
-  var title=document.createElement("div");title.className="details-title";title.textContent=ad.account_name||"Ø§Ú©Ø§Ù†Øª Ú©Ø§Ù„Ø§Ù";detailsContent.appendChild(title);
-  var code=document.createElement("div");code.className="details-code";code.textContent="Ú©Ø¯ Ø¢Ú¯Ù‡ÛŒ: #"+(ad.ad_code||"-");detailsContent.appendChild(code);
-  var price=document.createElement("div");price.className="details-price";price.textContent="ðŸ’° "+(ad.price||"ØªÙˆØ§ÙÙ‚ÛŒ")+" ØªÙˆÙ…Ø§Ù†";detailsContent.appendChild(price);
+  if(ad.image_url){var img=document.createElement("img");img.className="details-image";img.alt="تصویر اکانت";img.src=ad.image_url;img.onerror=function(){img.style.display="none";};detailsContent.appendChild(img);}
+  var title=document.createElement("div");title.className="details-title";title.textContent=ad.account_name||"اکانت کالاف";detailsContent.appendChild(title);
+  var code=document.createElement("div");code.className="details-code";code.textContent="کد آگهی: #"+(ad.ad_code||"-");detailsContent.appendChild(code);
+  var price=document.createElement("div");price.className="details-price";price.textContent="💰 "+(ad.price||"توافقی")+" تومان";detailsContent.appendChild(price);
   var grid=document.createElement("div");grid.className="details-grid";
-  [["ðŸ†” UID",ad.uid],["ðŸ‘¤ Ø§Ø³Ù… Ø§Ú©Ø§Ù†Øª",ad.account_name],["â­ Ù„ÙˆÙ„",ad.level],["ðŸ† Ø±Ù†Ú©",ad.rank],["ðŸ”¥ Ú¯Ø§Ù† Ù„Ø¬Ù†Ø¯",ad.legendary_count],["ðŸ”® Ú¯Ø§Ù† Ù…ÛŒØªÛŒÚ©",ad.mythic_count],["ðŸ” Ù†ÙˆØ¹ Ø³ÛŒÙˆ",ad.save_type],["ðŸ’° Ù‚ÛŒÙ…Øª",ad.price ? ad.price+" ØªÙˆÙ…Ø§Ù†" : "ØªÙˆØ§ÙÙ‚ÛŒ"]].forEach(function(x){grid.appendChild(detailItem(x[0],x[1]));});
+  [["🆔 UID",ad.uid],["👤 اسم اکانت",ad.account_name],["⭐ لول",ad.level],["🏆 رنک",ad.rank],["🔥 گان لجند",ad.legendary_count],["🔮 گان میتیک",ad.mythic_count],["🔐 نوع سیو",ad.save_type],["💰 قیمت",ad.price ? ad.price+" تومان" : "توافقی"]].forEach(function(x){grid.appendChild(detailItem(x[0],x[1]));});
   detailsContent.appendChild(grid);
-  var desc=document.createElement("div");desc.className="description";var strong=document.createElement("b");strong.textContent="ðŸ“ ØªÙˆØ¶ÛŒØ­Ø§Øª";desc.appendChild(strong);desc.appendChild(document.createElement("br"));desc.appendChild(document.createTextNode(ad.description||"ØªÙˆØ¶ÛŒØ­ÛŒ Ø«Ø¨Øª Ù†Ø´Ø¯Ù‡ Ø§Ø³Øª."));detailsContent.appendChild(desc);
+  var desc=document.createElement("div");desc.className="description";var strong=document.createElement("b");strong.textContent="📝 توضیحات";desc.appendChild(strong);desc.appendChild(document.createElement("br"));desc.appendChild(document.createTextNode(ad.description||"توضیحی ثبت نشده است."));detailsContent.appendChild(desc);
   var seller=String(ad.seller_username||"").replace(/^@/,"").trim();
-  var sellerBox=document.createElement("div");sellerBox.className="seller-box";sellerBox.textContent="ðŸ‘¤ ÙØ±ÙˆØ´Ù†Ø¯Ù‡: "+(seller?"@"+seller:"Ù†Ø§Ù…Ø´Ø®Øµ");detailsContent.appendChild(sellerBox);
-  var buyBtn=document.createElement("button");buyBtn.type="button";buyBtn.className="btn cyan";buyBtn.style.marginTop="14px";buyBtn.textContent="ðŸ›’ Ø¯Ø±Ø®ÙˆØ§Ø³Øª Ø®Ø±ÛŒØ¯ Ø§Ø² ÙØ±ÙˆØ´Ù†Ø¯Ù‡";
+  var sellerBox=document.createElement("div");sellerBox.className="seller-box";sellerBox.textContent="👤 فروشنده: "+(seller?"@"+seller:"نامشخص");detailsContent.appendChild(sellerBox);
+  var buyBtn=document.createElement("button");buyBtn.type="button";buyBtn.className="btn cyan";buyBtn.style.marginTop="14px";buyBtn.textContent="🛒 درخواست خرید از فروشنده";
   buyBtn.onclick=function(){
-    if(!seller){alert("Ø¨Ø±Ø§ÛŒ Ø§ÛŒÙ† Ø¢Ú¯Ù‡ÛŒ Ù†Ø§Ù… Ú©Ø§Ø±Ø¨Ø±ÛŒ ØªÙ„Ú¯Ø±Ø§Ù… ÙØ±ÙˆØ´Ù†Ø¯Ù‡ Ø«Ø¨Øª Ù†Ø´Ø¯Ù‡ Ø§Ø³Øª.");return;}
-    var message="Ø³Ù„Ø§Ù…ØŒ Ø¨Ø±Ø§ÛŒ Ø®Ø±ÛŒØ¯ Ø§Ú©Ø§Ù†Øª Ú©Ø§Ù„Ø§Ù Ù¾ÛŒØ§Ù… Ø¯Ø§Ø¯Ù….\nÚ©Ø¯ Ø¢Ú¯Ù‡ÛŒ: #"+(ad.ad_code||"-")+"\nÙ†Ø§Ù… Ø§Ú©Ø§Ù†Øª: "+(ad.account_name||"Ø§Ú©Ø§Ù†Øª Ú©Ø§Ù„Ø§Ù")+"\nÙ‚ÛŒÙ…Øª: "+(ad.price||"ØªÙˆØ§ÙÙ‚ÛŒ")+" ØªÙˆÙ…Ø§Ù†\nÙ„Ø·ÙØ§Ù‹ Ø¬Ø²Ø¦ÛŒØ§Øª Ø¨ÛŒØ´ØªØ± Ø±Ø§ Ø¨ÙØ±Ù…Ø§ÛŒÛŒØ¯.";
+    if(!seller){alert("برای این آگهی نام کاربری تلگرام فروشنده ثبت نشده است.");return;}
+    var message="سلام، برای خرید اکانت کالاف پیام دادم.\nکد آگهی: #"+(ad.ad_code||"-")+"\nنام اکانت: "+(ad.account_name||"اکانت کالاف")+"\nقیمت: "+(ad.price||"توافقی")+" تومان\nلطفاً جزئیات بیشتر را بفرمایید.";
     openTelegramMessage(message,seller);
   };
   detailsContent.appendChild(buyBtn);
@@ -213,20 +223,20 @@ selectChoice("rankChoices","rank");selectChoice("saveChoices","saveType");
 document.getElementById("file").onchange=function(e){
   files=Array.prototype.slice.call(e.target.files,0,5);
   var thumbs=document.getElementById("thumbs");thumbs.innerHTML="";
-  files.forEach(function(file){var img=document.createElement("img");img.src=URL.createObjectURL(file);img.alt="ØªØµÙˆÛŒØ± Ø§Ú©Ø§Ù†Øª";thumbs.appendChild(img);});
-  if(e.target.files.length>5)err.textContent="Ø­Ø¯Ø§Ú©Ø«Ø± Ûµ Ø¹Ú©Ø³ Ø§Ù†ØªØ®Ø§Ø¨ Ù…ÛŒâ€ŒØ´ÙˆØ¯.";
+  files.forEach(function(file){var img=document.createElement("img");img.src=URL.createObjectURL(file);img.alt="تصویر اکانت";thumbs.appendChild(img);});
+  if(e.target.files.length>5)err.textContent="حداکثر ۵ عکس انتخاب می‌شود.";
 };
 document.getElementById("f").onsubmit=function(e){
   e.preventDefault();err.className="err";err.textContent="";
   var val=function(id){return document.getElementById(id).value.trim();};
   var uid=val("uid"),name=val("name"),level=val("level"),rank=val("rank"),legendary=val("leg"),mythic=val("myth"),price=val("price"),saveType=val("saveType"),seller=val("seller"),description=val("description");
-  if(!uid||!name||!level||!rank||!legendary||!mythic||!price||!saveType||!seller){err.textContent="âš ï¸ Ù„Ø·ÙØ§Ù‹ ØªÙ…Ø§Ù… Ø§Ø·Ù„Ø§Ø¹Ø§Øª Ø±Ø§ Ú©Ø§Ù…Ù„ Ú©Ù†ÛŒØ¯.";return;}
-  if(!/^\d+$/.test(uid)){err.textContent="âŒ UID Ø¨Ø§ÛŒØ¯ ÙÙ‚Ø· Ø¹Ø¯Ø¯ Ø¨Ø§Ø´Ø¯.";return;}
-  if(!/^\d+$/.test(level)){err.textContent="âŒ Ù„ÙˆÙ„ Ø§Ú©Ø§Ù†Øª Ø¨Ø§ÛŒØ¯ Ø¹Ø¯Ø¯ Ø¨Ø§Ø´Ø¯.";return;}
-  if(!/^\d+$/.test(legendary)||!/^\d+$/.test(mythic)||!/^\d+$/.test(price)){err.textContent="âŒ ØªØ¹Ø¯Ø§Ø¯ Ú¯Ø§Ù†â€ŒÙ‡Ø§ Ùˆ Ù‚ÛŒÙ…Øª Ø¨Ø§ÛŒØ¯ Ø¹Ø¯Ø¯ Ø¨Ø§Ø´Ù†Ø¯.";return;}
-  if(!files.length){err.textContent="ðŸ“¸ Ø­Ø¯Ø§Ù‚Ù„ ÛŒÚ© Ø¹Ú©Ø³ Ø§Ú©Ø§Ù†Øª Ø§Ù†ØªØ®Ø§Ø¨ Ú©Ù†ÛŒØ¯.";return;}
-  var text="ðŸ“‹ Ø¢Ú¯Ù‡ÛŒ ÙØ±ÙˆØ´ Ø§Ú©Ø§Ù†Øª Ú©Ø§Ù„Ø§Ù\nâ”â”â”â”â”â”â”â”â”â”â”â”â”â”\n\nðŸ†” UID: "+uid+"\nðŸ‘¤ Ø§Ø³Ù… Ø§Ú©Ø§Ù†Øª: "+name+"\nâ­ Ù„ÙˆÙ„ Ø§Ú©Ø§Ù†Øª: "+level+"\nðŸ† Ø±Ù†Ú©: "+rank+"\nðŸ”¥ ØªØ¹Ø¯Ø§Ø¯ Ú¯Ø§Ù† Ù„Ø¬Ù†Ø¯: "+legendary+"\nðŸ”® ØªØ¹Ø¯Ø§Ø¯ Ú¯Ø§Ù† Ù…ÛŒØªÛŒÚ©: "+mythic+"\nðŸ’° Ù‚ÛŒÙ…Øª: "+price+" ØªÙˆÙ…Ø§Ù†\nðŸ” Ù†ÙˆØ¹ Ø³ÛŒÙˆ: "+saveType+"\nðŸ‘¤ Ø¢ÛŒØ¯ÛŒ ÙØ±ÙˆØ´Ù†Ø¯Ù‡: "+seller+(description?"\n\nðŸ“ ØªÙˆØ¶ÛŒØ­Ø§Øª:\n"+description:"")+"\n\nâ”â”â”â”â”â”â”â”â”â”â”â”â”â”\nðŸ“¸ ØªØ¹Ø¯Ø§Ø¯ Ø¹Ú©Ø³: "+files.length+"\n\nâš ï¸ Ù„Ø·ÙØ§Ù‹ Ø¹Ú©Ø³â€ŒÙ‡Ø§ÛŒ Ø§Ú©Ø§Ù†Øª Ø±Ø§ Ù†ÛŒØ² Ø¯Ø± Ù‡Ù…ÛŒÙ† Ú†Øª Ø§Ø±Ø³Ø§Ù„ Ú©Ù†ÛŒØ¯.";
-  err.className="err success";err.textContent="âœ… Ø¢Ú¯Ù‡ÛŒ Ø¢Ù…Ø§Ø¯Ù‡ Ø´Ø¯Ø› Ø¯Ø± Ø­Ø§Ù„ Ø¨Ø§Ø² Ú©Ø±Ø¯Ù† ØªÙ„Ú¯Ø±Ø§Ù…...";
+  if(!uid||!name||!level||!rank||!legendary||!mythic||!price||!saveType||!seller){err.textContent="⚠️ لطفاً تمام اطلاعات را کامل کنید.";return;}
+  if(!/^\d+$/.test(uid)){err.textContent="❌ UID باید فقط عدد باشد.";return;}
+  if(!/^\d+$/.test(level)){err.textContent="❌ لول اکانت باید عدد باشد.";return;}
+  if(!/^\d+$/.test(legendary)||!/^\d+$/.test(mythic)||!/^\d+$/.test(price)){err.textContent="❌ تعداد گان‌ها و قیمت باید عدد باشند.";return;}
+  if(!files.length){err.textContent="📸 حداقل یک عکس اکانت انتخاب کنید.";return;}
+  var text="📋 آگهی فروش اکانت کالاف\n━━━━━━━━━━━━━━\n\n🆔 UID: "+uid+"\n👤 اسم اکانت: "+name+"\n⭐ لول اکانت: "+level+"\n🏆 رنک: "+rank+"\n🔥 تعداد گان لجند: "+legendary+"\n🔮 تعداد گان میتیک: "+mythic+"\n💰 قیمت: "+price+" تومان\n🔐 نوع سیو: "+saveType+"\n👤 آیدی فروشنده: "+seller+(description?"\n\n📝 توضیحات:\n"+description:"")+"\n\n━━━━━━━━━━━━━━\n📸 تعداد عکس: "+files.length+"\n\n⚠️ لطفاً عکس‌های اکانت را نیز در همین چت ارسال کنید.";
+  err.className="err success";err.textContent="✅ آگهی آماده شد؛ در حال باز کردن تلگرام...";
   setTimeout(function(){openTelegramMessage(text);},300);
 };
 </script>
