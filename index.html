@@ -23,7 +23,7 @@ header p,.note{color:var(--muted);line-height:1.9;font-size:14px}
 .btn.cyan{border-color:rgba(255,92,112,.5);background:linear-gradient(135deg,rgba(255,92,112,.14),rgba(255,92,112,.04))}
 .note{text-align:center;font-size:12px;margin-top:15px}
 .footer{text-align:center;color:#705e62;font-size:11px;margin-top:25px}
-#buyScreen,#cpScreen,#detailsScreen{display:none}
+#mainScreen,#buyScreen,#cpScreen,#detailsScreen,#supportScreen{display:none}
 .buy-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
 .buy-title{font-size:20px;text-shadow:0 0 9px rgba(255,51,79,.5)}
 .refresh-btn{border:1px solid rgba(255,92,112,.4);background:rgba(255,92,112,.07);color:white;border-radius:12px;padding:10px 12px;cursor:pointer;font-size:12px}
@@ -50,6 +50,11 @@ header p,.note{color:var(--muted);line-height:1.9;font-size:14px}
 .description,.seller-box,.cp-note{margin-top:15px;padding:14px;border-radius:14px;background:rgba(255,255,255,.018);border:1px solid rgba(255,255,255,.055);line-height:2;font-size:13px;overflow-wrap:anywhere}
 .seller-box{text-align:center;color:#ffe2e6;background:rgba(255,51,79,.035);border-color:rgba(255,51,79,.15)}
 .back-btn{margin-bottom:14px}
+.welcome-title{font-size:25px;margin-bottom:12px;text-shadow:0 0 9px rgba(255,51,79,.55)}
+.welcome-card{text-align:center;padding:25px 20px}
+.welcome-card p{color:var(--muted);line-height:2;margin-bottom:20px;font-size:14px}
+.support-hint{color:var(--muted);font-size:12px;line-height:1.9;margin-top:9px}
+#supportMessage{min-height:180px}
 dialog{width:min(94%,600px);max-height:92vh;margin:auto;overflow-y:auto;border:1px solid rgba(255,51,79,.5);border-radius:24px;background:#0d080a;color:var(--text);padding:0}
 dialog::backdrop{background:rgba(0,0,0,.75)}
 .dialog-inner{padding:22px}
@@ -76,6 +81,14 @@ textarea{min-height:90px;resize:vertical;line-height:1.8}
 </head>
 <body>
 <div class="container">
+  <div id="welcomeScreen">
+    <header><div class="logo">🎮</div><h1 class="welcome-title">به VGR STORE خوش اومدی! ❤️</h1><p>رفیق، برای خرید و فروش اکانت کالاف دیوتی موبایل اینجاییم 😎</p></header>
+    <section class="card welcome-card">
+      <p>از اینجا می‌تونی آگهی‌های اکانت رو ببینی، برای خرید با فروشنده تماس بگیری یا از پشتیبانی کمک بگیری.</p>
+      <button class="btn" id="goMain" type="button">🚀 ورود به گزینه‌های اصلی</button>
+    </section>
+  </div>
+  <div id="mainScreen">
   <div id="homeScreen">
     <header><div class="logo">🎮</div><h1>خرید و فروش اکانت کالاف</h1><p>آگهی اکانتت رو ثبت کن یا برای خرید اکانت و CP اقدام کن.<br>نسخه پشتیبان VGR STORE</p></header>
     <main class="card">
@@ -83,9 +96,21 @@ textarea{min-height:90px;resize:vertical;line-height:1.8}
         <button class="btn" id="open" type="button">📋 ثبت آگهی</button>
         <button class="btn cyan" id="buy" type="button">🛒 خرید اکانت</button>
         <button class="btn" id="cp" type="button">💳 خرید CP</button>
+        <button class="btn cyan" id="support" type="button">🆘 پشتیبانی</button>
       </div>
       <p class="note">⚠️ این مینی‌اپ زمانی استفاده می‌شود که ربات در دسترس نباشد.<br>بعد از ثبت آگهی، اطلاعات برای ادمین ارسال می‌شود.</p>
     </main>
+  </div><!-- /mainScreen -->
+  <div id="supportScreen">
+    <button class="btn back-btn" id="backSupport" type="button">↩️ بازگشت به گزینه‌های اصلی</button>
+    <section class="card">
+      <div class="buy-title">🆘 پشتیبانی VGR STORE</div>
+      <p class="support-hint">مشکلت رو کامل بنویس؛ بعد از زدن دکمه، تلگرام با پیام آماده باز می‌شه. برای ارسال نهایی باید داخل تلگرام روی Send بزنی.</p>
+      <label for="supportMessage">📝 توضیح مشکل</label>
+      <textarea id="supportMessage" maxlength="2000" placeholder="مشکلت رو اینجا بنویس..."></textarea>
+      <div class="err" id="supportErr" role="alert"></div>
+      <button class="btn" id="sendSupport" type="button">📨 ارسال به ادمین در تلگرام</button>
+    </section>
   </div>
   <div id="buyScreen">
     <div class="buy-header"><div class="buy-title">🛒 آگهی‌های فروش</div><button class="refresh-btn" id="refreshAds" type="button">🔄 بروزرسانی</button></div>
@@ -134,6 +159,7 @@ var ADS_URL = "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads.json";
 var tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
 if (tg) { tg.ready(); tg.expand(); }
 var dlg=document.getElementById("dlg"), err=document.getElementById("err"), files=[];
+var welcomeScreen=document.getElementById("welcomeScreen"), mainScreen=document.getElementById("mainScreen"), supportScreen=document.getElementById("supportScreen");
 var homeScreen=document.getElementById("homeScreen"), buyScreen=document.getElementById("buyScreen"), cpScreen=document.getElementById("cpScreen"), detailsScreen=document.getElementById("detailsScreen"), adsList=document.getElementById("adsList"), detailsContent=document.getElementById("detailsContent");
 
 function openTelegramMessage(text, username) {
@@ -143,6 +169,16 @@ function openTelegramMessage(text, username) {
   if(tg && tg.openTelegramLink) tg.openTelegramLink(url);
   else window.open(url,"_blank","noopener");
 }
+document.getElementById("goMain").onclick=function(){welcomeScreen.style.display="none";mainScreen.style.display="block";};
+document.getElementById("support").onclick=function(){mainScreen.style.display="none";supportScreen.style.display="block";};
+document.getElementById("backSupport").onclick=function(){supportScreen.style.display="none";mainScreen.style.display="block";};
+document.getElementById("sendSupport").onclick=function(){
+  var message=document.getElementById("supportMessage").value.trim();
+  var supportErr=document.getElementById("supportErr");
+  if(!message){supportErr.textContent="⚠️ لطفاً اول مشکلت رو بنویس.";return;}
+  supportErr.textContent="در حال باز کردن تلگرام...";
+  openTelegramMessage("🆘 درخواست پشتیبانی VGR STORE\n\n"+message);
+};
 document.getElementById("open").onclick=function(){err.textContent="";dlg.showModal();};
 document.getElementById("close").onclick=function(){dlg.close();};
 document.getElementById("buy").onclick=function(){homeScreen.style.display="none";cpScreen.style.display="none";detailsScreen.style.display="none";buyScreen.style.display="block";loadAds();};
