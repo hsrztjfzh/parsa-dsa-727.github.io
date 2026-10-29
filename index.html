@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,7 @@ header p,.note{color:var(--muted);line-height:1.9;font-size:14px}
 .btn.cyan{border-color:rgba(255,92,112,.5);background:linear-gradient(135deg,rgba(255,92,112,.14),rgba(255,92,112,.04))}
 .note{text-align:center;font-size:12px;margin-top:15px}
 .footer{text-align:center;color:#705e62;font-size:11px;margin-top:25px}
-#mainScreen,#buyScreen,#cpScreen,#detailsScreen,#supportScreen{display:none}
+#mainScreen,#buyScreen,#cpScreen,#detailsScreen,#supportScreen,#pingScreen{display:none}
 .buy-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
 .buy-title{font-size:20px;text-shadow:0 0 9px rgba(255,51,79,.5)}
 .refresh-btn{border:1px solid rgba(255,92,112,.4);background:rgba(255,92,112,.07);color:white;border-radius:12px;padding:10px 12px;cursor:pointer;font-size:12px}
@@ -96,6 +96,7 @@ textarea{min-height:90px;resize:vertical;line-height:1.8}
         <button class="btn" id="open" type="button">📋 ثبت آگهی</button>
         <button class="btn cyan" id="buy" type="button">🛒 خرید اکانت</button>
         <button class="btn" id="cp" type="button">💳 خرید CP</button>
+        <button class="btn" id="pingApp" type="button">📡 اپ کاهش پینگ</button>
         <button class="btn cyan" id="support" type="button">🆘 پشتیبانی</button>
       </div>
       <p class="note">⚠️ این مینی‌اپ زمانی استفاده می‌شود که ربات در دسترس نباشد.<br>بعد از ثبت آگهی، اطلاعات برای ادمین ارسال می‌شود.</p>
@@ -110,6 +111,17 @@ textarea{min-height:90px;resize:vertical;line-height:1.8}
       <textarea id="supportMessage" maxlength="2000" placeholder="مشکلت رو اینجا بنویس..."></textarea>
       <div class="err" id="supportErr" role="alert"></div>
       <button class="btn" id="sendSupport" type="button">📨 ارسال به ادمین در تلگرام</button>
+    </section>
+  </div>
+  <div id="pingScreen">
+    <button class="btn back-btn" id="backPing" type="button">↩️ بازگشت به گزینه‌های اصلی</button>
+    <section class="card">
+      <div class="buy-title">📡 دریافت اپ کاهش پینگ</div>
+      <p class="support-hint">برای دریافت فایل، اول عضو کانال زیر شو. بعد درخواستت در ربات بررسی می‌شه و فقط پس از تأیید مدیر، فایل APK برات ارسال می‌شه.</p>
+      <a class="btn cyan" id="joinPingChannel" href="https://t.me/parsa_xy" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">📢 عضویت در کانال</a>
+      <button class="btn" id="checkPingMembership" type="button" style="margin-top:11px">✅ بررسی عضویت و ادامه</button>
+      <p class="note" style="margin-top:12px">اگر عضو کانال هستی ولی بررسی موفق نشد، چند لحظه صبر کن و دوباره بزن. تأیید عضویت و تأیید مدیر دو مرحلهٔ جدا هستند.</p>
+      <div class="err" id="pingErr" role="status"></div>
     </section>
   </div>
   <div id="buyScreen">
@@ -154,12 +166,14 @@ textarea{min-height:90px;resize:vertical;line-height:1.8}
 <script>
 /* تنظیمات: نام کاربری ادمین را بدون @ وارد کنید */
 var ADMIN_USERNAME = "Parsa_xxxxx";
+/* نام کاربری ربات اختصاصی دریافت اپ را بدون @ وارد کنید. */
+var PING_BOT_USERNAME = "YOUR_PING_BOT_USERNAME";
 /* این فایل فقط منبع فعلی آگهی‌ها را می‌خواند؛ اگر ربات دیگر ads.json را به‌روز نکند، آگهی‌های جدید خودکار ظاهر نمی‌شوند. */
 var ADS_URL = "https://hsrztjfzh.github.io/parsa-dsa-727.github.io/ads.json";
 var tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
 if (tg) { tg.ready(); tg.expand(); }
 var dlg=document.getElementById("dlg"), err=document.getElementById("err"), files=[];
-var welcomeScreen=document.getElementById("welcomeScreen"), mainScreen=document.getElementById("mainScreen"), supportScreen=document.getElementById("supportScreen");
+var welcomeScreen=document.getElementById("welcomeScreen"), mainScreen=document.getElementById("mainScreen"), supportScreen=document.getElementById("supportScreen"), pingScreen=document.getElementById("pingScreen");
 var homeScreen=document.getElementById("homeScreen"), buyScreen=document.getElementById("buyScreen"), cpScreen=document.getElementById("cpScreen"), detailsScreen=document.getElementById("detailsScreen"), adsList=document.getElementById("adsList"), detailsContent=document.getElementById("detailsContent");
 
 function openTelegramMessage(text, username) {
@@ -170,8 +184,19 @@ function openTelegramMessage(text, username) {
   else window.open(url,"_blank","noopener");
 }
 document.getElementById("goMain").onclick=function(){welcomeScreen.style.display="none";mainScreen.style.display="block";};
-document.getElementById("support").onclick=function(){mainScreen.style.display="none";supportScreen.style.display="block";};
-document.getElementById("backSupport").onclick=function(){supportScreen.style.display="none";mainScreen.style.display="block";};
+/* پشتیبانی و صفحه اپ داخل mainScreen هستند؛ فقط صفحه فرزند را عوض می‌کنیم. */
+document.getElementById("support").onclick=function(){homeScreen.style.display="none";buyScreen.style.display="none";cpScreen.style.display="none";detailsScreen.style.display="none";pingScreen.style.display="none";supportScreen.style.display="block";};
+document.getElementById("backSupport").onclick=function(){supportScreen.style.display="none";homeScreen.style.display="block";};
+document.getElementById("pingApp").onclick=function(){homeScreen.style.display="none";buyScreen.style.display="none";cpScreen.style.display="none";detailsScreen.style.display="none";supportScreen.style.display="none";pingScreen.style.display="block";};
+document.getElementById("backPing").onclick=function(){pingScreen.style.display="none";homeScreen.style.display="block";};
+document.getElementById("checkPingMembership").onclick=function(){
+  var pingErr=document.getElementById("pingErr");
+  var username=String(PING_BOT_USERNAME||"").replace(/^@/,"").trim();
+  if(!username||username==="YOUR_PING_BOT_USERNAME"){pingErr.textContent="⚙️ اول نام کاربری ربات دریافت اپ را در کد سایت وارد کن.";return;}
+  pingErr.textContent="در حال باز کردن ربات برای بررسی عضویت و ثبت درخواست...";
+  var url="https://t.me/"+encodeURIComponent(username)+"?start=pingapp";
+  if(tg&&tg.openTelegramLink)tg.openTelegramLink(url);else window.open(url,"_blank","noopener");
+};
 document.getElementById("sendSupport").onclick=function(){
   var message=document.getElementById("supportMessage").value.trim();
   var supportErr=document.getElementById("supportErr");
